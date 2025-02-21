@@ -1,0 +1,12 @@
+﻿dataclean
+=========
+
+.. automodule:: dataclean
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      clean_whitespace_in_df
+   

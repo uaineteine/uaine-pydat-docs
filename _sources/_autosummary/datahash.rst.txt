@@ -1,0 +1,13 @@
+﻿datahash
+========
+
+.. automodule:: datahash
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      hash256
+      hashhmac
+   
