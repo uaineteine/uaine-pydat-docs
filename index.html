@@ -1,0 +1,608 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uaine.Pydat documentation &mdash; Uaine.Pydat 2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=cb975c41"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Uaine.Pydat
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Uaine.Pydat documentation</a></li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#module-dataclean">dataclean</a><ul>
+<li><a class="reference internal" href="#dataclean.clean_whitespace_in_df"><code class="docutils literal notranslate"><span class="pre">clean_whitespace_in_df()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-datahash">datahash</a><ul>
+<li><a class="reference internal" href="#datahash.hash256"><code class="docutils literal notranslate"><span class="pre">hash256()</span></code></a></li>
+<li><a class="reference internal" href="#datahash.hashhmac"><code class="docutils literal notranslate"><span class="pre">hashhmac()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dataio">dataio</a><ul>
+<li><a class="reference internal" href="#dataio.read_flat_df"><code class="docutils literal notranslate"><span class="pre">read_flat_df()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.read_flat_psv"><code class="docutils literal notranslate"><span class="pre">read_flat_psv()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.read_ini_file"><code class="docutils literal notranslate"><span class="pre">read_ini_file()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.read_sas_colnames"><code class="docutils literal notranslate"><span class="pre">read_sas_colnames()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.read_sas_metadata"><code class="docutils literal notranslate"><span class="pre">read_sas_metadata()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.select_dataset_ui"><code class="docutils literal notranslate"><span class="pre">select_dataset_ui()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.write_flat_df"><code class="docutils literal notranslate"><span class="pre">write_flat_df()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-datatransform">datatransform</a><ul>
+<li><a class="reference internal" href="#datatransform.add_prefix"><code class="docutils literal notranslate"><span class="pre">add_prefix()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.add_suffix"><code class="docutils literal notranslate"><span class="pre">add_suffix()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.break_into_lines"><code class="docutils literal notranslate"><span class="pre">break_into_lines()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-duckfunc">duckfunc</a><ul>
+<li><a class="reference internal" href="#duckfunc.does_table_exist"><code class="docutils literal notranslate"><span class="pre">does_table_exist()</span></code></a></li>
+<li><a class="reference internal" href="#duckfunc.getCurrentTimeForDuck"><code class="docutils literal notranslate"><span class="pre">getCurrentTimeForDuck()</span></code></a></li>
+<li><a class="reference internal" href="#duckfunc.getDuckVersion"><code class="docutils literal notranslate"><span class="pre">getDuckVersion()</span></code></a></li>
+<li><a class="reference internal" href="#duckfunc.get_attached_dbs"><code class="docutils literal notranslate"><span class="pre">get_attached_dbs()</span></code></a></li>
+<li><a class="reference internal" href="#duckfunc.get_inventory"><code class="docutils literal notranslate"><span class="pre">get_inventory()</span></code></a></li>
+<li><a class="reference internal" href="#duckfunc.init_table"><code class="docutils literal notranslate"><span class="pre">init_table()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-fileio">fileio</a><ul>
+<li><a class="reference internal" href="#fileio.addsyspath"><code class="docutils literal notranslate"><span class="pre">addsyspath()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.download_file_from_url"><code class="docutils literal notranslate"><span class="pre">download_file_from_url()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.get_file_extension"><code class="docutils literal notranslate"><span class="pre">get_file_extension()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.list_files_of_extension"><code class="docutils literal notranslate"><span class="pre">list_files_of_extension()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.mv_file"><code class="docutils literal notranslate"><span class="pre">mv_file()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.read_file_to_bytes"><code class="docutils literal notranslate"><span class="pre">read_file_to_bytes()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.read_file_to_string"><code class="docutils literal notranslate"><span class="pre">read_file_to_string()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-systeminfo">systeminfo</a><ul>
+<li><a class="reference internal" href="#systeminfo.free_gb_in_drive"><code class="docutils literal notranslate"><span class="pre">free_gb_in_drive()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.gather_free_space_in_drive"><code class="docutils literal notranslate"><span class="pre">gather_free_space_in_drive()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_free_ram"><code class="docutils literal notranslate"><span class="pre">get_free_ram()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_free_ram_in_gb"><code class="docutils literal notranslate"><span class="pre">get_free_ram_in_gb()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_installed_ram_gb"><code class="docutils literal notranslate"><span class="pre">get_installed_ram_gb()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_number_virtual_cores"><code class="docutils literal notranslate"><span class="pre">get_number_virtual_cores()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_physical_cores"><code class="docutils literal notranslate"><span class="pre">get_physical_cores()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.list_drive_spaces"><code class="docutils literal notranslate"><span class="pre">list_drive_spaces()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.list_drives"><code class="docutils literal notranslate"><span class="pre">list_drives()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Uaine.Pydat</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Uaine.Pydat documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="uaine-pydat-documentation">
+<h1>Uaine.Pydat documentation<a class="headerlink" href="#uaine-pydat-documentation" title="Link to this heading"></a></h1>
+<p>A python package to assist in data and database handling.</p>
+<p>This contains a few functions that make data handling a little simpler, including a dedicated psv function, hash functions, data table cleaning methods and snippet queries for duckdb.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="dependencies">
+<h1>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>pandas</p></li>
+<li><p>pyreadstat</p></li>
+<li><p>requests</p></li>
+<li><p>duckdb</p></li>
+<li><p>wheel</p></li>
+<li><p>twine</p></li>
+</ul>
+</section>
+<section id="module-dataclean">
+<span id="dataclean"></span><h1>dataclean<a class="headerlink" href="#module-dataclean" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="dataclean.clean_whitespace_in_df">
+<span class="sig-prename descclassname"><span class="pre">dataclean.</span></span><span class="sig-name descname"><span class="pre">clean_whitespace_in_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#dataclean.clean_whitespace_in_df" title="Link to this definition"></a></dt>
+<dd><p>Remove leading and trailing whitespace from string columns in a DataFrame.</p>
+<p>Parameters:
+df (DataFrame): The input DataFrame.</p>
+<p>Returns:
+DataFrame: The DataFrame with leading and trailing whitespace removed from string columns.</p>
+</dd></dl>
+
+</section>
+<section id="module-datahash">
+<span id="datahash"></span><h1>datahash<a class="headerlink" href="#module-datahash" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="datahash.hash256">
+<span class="sig-prename descclassname"><span class="pre">datahash.</span></span><span class="sig-name descname"><span class="pre">hash256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datastr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sha_salt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datahash.hash256" title="Link to this definition"></a></dt>
+<dd><p>Create a SHA-256 hash using the provided data and salt.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>datastr (str): The data to be hashed.
+sha_salt (str): The salt to be used in the SHA-256 hashing.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The hexadecimal digest of the SHA-256 hash.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datahash.hashhmac">
+<span class="sig-prename descclassname"><span class="pre">datahash.</span></span><span class="sig-name descname"><span class="pre">hashhmac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datastr:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sha_salt:</span> <span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method=&lt;built-in</span> <span class="pre">function</span> <span class="pre">openssl_sha256&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datahash.hashhmac" title="Link to this definition"></a></dt>
+<dd><p>Create an HMAC hash using the provided data, salt, and method.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>datastr (str): The data to be hashed.
+sha_salt (bytes): The salt to be used in the HMAC hashing.
+method: The hashing method to be used (default is hashlib.sha256).</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The hexadecimal digest of the HMAC hash.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dataio">
+<span id="dataio"></span><h1>dataio<a class="headerlink" href="#module-dataio" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.read_flat_df">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">read_flat_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#dataio.read_flat_df" title="Link to this definition"></a></dt>
+<dd><p>Read a flat file into a DataFrame.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>filepath (str): The path to the flat file.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pd.DataFrame: The DataFrame read from the file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.read_flat_psv">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">read_flat_psv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#dataio.read_flat_psv" title="Link to this definition"></a></dt>
+<dd><p>Read a pipe-separated values (PSV) file into a DataFrame.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>path (str): The path to the PSV file.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pd.DataFrame: The DataFrame read from the PSV file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.read_ini_file">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">read_ini_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#dataio.read_ini_file" title="Link to this definition"></a></dt>
+<dd><p>Read an INI file and return its contents as a dictionary.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>file_path (str): The path to the INI file.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the key-value pairs from the INI file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.read_sas_colnames">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">read_sas_colnames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'latin-1'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#dataio.read_sas_colnames" title="Link to this definition"></a></dt>
+<dd><p>Read SAS file column names.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>filepath (str): The path to the SAS file.
+encoding (str): The encoding to use for reading the SAS file. Default is “latin-1”.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list: A list of column names from the SAS file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.read_sas_metadata">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">read_sas_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'latin-1'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#dataio.read_sas_metadata" title="Link to this definition"></a></dt>
+<dd><p>Read SAS file metadata and return names, labels, formats, and lengths of columns.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>filepath (str): The path to the SAS file.
+encoding (str): The encoding to use for reading the SAS file. Default is “latin-1”.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the column names, labels, formats, and lengths.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.select_dataset_ui">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">select_dataset_ui</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#dataio.select_dataset_ui" title="Link to this definition"></a></dt>
+<dd><p>List the files with the specified extension in the given directory and prompt the user to select one.</p>
+<p>Parameters:
+directory (str): The directory to search for files.
+extension (str): The file extension to filter by.</p>
+<p>Returns:
+str: The filename of the selected dataset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.write_flat_df">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">write_flat_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dataio.write_flat_df" title="Link to this definition"></a></dt>
+<dd><p>Write a DataFrame to a flat file in different formats.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (pd.DataFrame): The DataFrame to be written.
+filepath (str): The path where the file will be saved.
+index (bool): Whether to write row names (index). Default is False.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-datatransform">
+<span id="datatransform"></span><h1>datatransform<a class="headerlink" href="#module-datatransform" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.add_prefix">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">add_prefix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datatransform.add_prefix" title="Link to this definition"></a></dt>
+<dd><p>Add the specified prefix to the string.</p>
+<p>Parameters:
+string (str): The original string.
+prefix (str): The prefix to add to the string.</p>
+<p>Returns:
+str: The string with the prefix added.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.add_suffix">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">add_suffix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datatransform.add_suffix" title="Link to this definition"></a></dt>
+<dd><p>Add the specified suffix to the string.</p>
+<p>Parameters:
+string (str): The original string.
+suffix (str): The suffix to add to the string.</p>
+<p>Returns:
+str: The string with the suffix added.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.break_into_lines">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">break_into_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#datatransform.break_into_lines" title="Link to this definition"></a></dt>
+<dd><p>Breaks a string into a list of lines.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>string (str): The input string to be broken into lines.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[str]: A list of lines from the input string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-duckfunc">
+<span id="duckfunc"></span><h1>duckfunc<a class="headerlink" href="#module-duckfunc" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="duckfunc.does_table_exist">
+<span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">does_table_exist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_con</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dbname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tablename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#duckfunc.does_table_exist" title="Link to this definition"></a></dt>
+<dd><p>Check if a table exists in the specified database.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>db_con: The database connection object.
+dbname (str): The name of the database.
+tablename (str): The name of the table.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if the table exists, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="duckfunc.getCurrentTimeForDuck">
+<span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">getCurrentTimeForDuck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timezone_included</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#duckfunc.getCurrentTimeForDuck" title="Link to this definition"></a></dt>
+<dd><p>Get the current time formatted for DuckDB, optionally including the timezone.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>timezone_included (bool): If True, includes the timezone in the returned string.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The current time formatted as ‘YYYY-MM-DD HH:MM:SS’ (with optional timezone).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="duckfunc.getDuckVersion">
+<span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">getDuckVersion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">con</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#duckfunc.getDuckVersion" title="Link to this definition"></a></dt>
+<dd><p>Get the connected DuckDB version.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>con: The database connection object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The version of the DuckDB you have open.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="duckfunc.get_attached_dbs">
+<span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">get_attached_dbs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_con</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#duckfunc.get_attached_dbs" title="Link to this definition"></a></dt>
+<dd><p>Get the list of attached databases.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>db_con: The database connection object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>DataFrame: A DataFrame containing the database name, path, and type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="duckfunc.get_inventory">
+<span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">get_inventory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_con</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#duckfunc.get_inventory" title="Link to this definition"></a></dt>
+<dd><p>Get the inventory of tables.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>db_con: The database connection object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>DataFrame: A DataFrame containing all tables.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="duckfunc.init_table">
+<span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">init_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">con</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tablename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#duckfunc.init_table" title="Link to this definition"></a></dt>
+<dd><p>Initialize a table in the specified database.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>con: The database connection object.
+frame (DataFrame): A DataFrame containing columns VARNAME and TYPE, which should be DuckDB-compatible.
+db (str): The name of the database.
+tablename (str): The name of the table.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if the table was created, False if it already exists.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-fileio">
+<span id="fileio"></span><h1>fileio<a class="headerlink" href="#module-fileio" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="fileio.addsyspath">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">addsyspath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fileio.addsyspath" title="Link to this definition"></a></dt>
+<dd><p>Add the specified directory to the system path if it is not already included.</p>
+<p>Parameters:
+directory (str): The directory to be added to the system path.</p>
+<p>Returns:
+None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileio.download_file_from_url">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">download_file_from_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fileio.download_file_from_url" title="Link to this definition"></a></dt>
+<dd><p>Downloads a file from the given URL and saves it to the specified path.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>url (str): The URL of the file to download.
+save_path (str): The file path where the downloaded file will be saved.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileio.get_file_extension">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">get_file_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#fileio.get_file_extension" title="Link to this definition"></a></dt>
+<dd><p>Get the file extension of the given file path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> – The path of the file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The file extension of the file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileio.list_files_of_extension">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">list_files_of_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fileio.list_files_of_extension" title="Link to this definition"></a></dt>
+<dd><p>List all files in the specified directory with the given extension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> – The directory to search in.</p></li>
+<li><p><strong>extn</strong> – The file extension to filter by.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of file paths with the specified extension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileio.mv_file">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">mv_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fileio.mv_file" title="Link to this definition"></a></dt>
+<dd><p>Moves a file from the source path to the destination path.</p>
+<p>Parameters:
+src (str): The path of the file to be moved.
+dest (str): The destination path where the file should be moved.</p>
+<p>Returns:
+None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileio.read_file_to_bytes">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">read_file_to_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#fileio.read_file_to_bytes" title="Link to this definition"></a></dt>
+<dd><p>Read the string content from the specified file and convert it to bytes using UTF-8 encoding.</p>
+<p>Parameters:
+file_path (str): The path to the file.</p>
+<p>Returns:
+bytes: The content of the file as bytes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileio.read_file_to_string">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">read_file_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#fileio.read_file_to_string" title="Link to this definition"></a></dt>
+<dd><p>Read the string content from the specified file.</p>
+<p>Parameters:
+file_path (str): The path to the file.</p>
+<p>Returns:
+str: The content of the file as a string.</p>
+</dd></dl>
+
+</section>
+<section id="module-systeminfo">
+<span id="systeminfo"></span><h1>systeminfo<a class="headerlink" href="#module-systeminfo" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.free_gb_in_drive">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">free_gb_in_drive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">drive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#systeminfo.free_gb_in_drive" title="Link to this definition"></a></dt>
+<dd><p>Calculate the free space in a specified drive in gigabytes (GB).</p>
+<p>Parameters:
+drive (str): The drive to check the free space of.</p>
+<p>Returns:
+float: The free space in gigabytes (GB).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.gather_free_space_in_drive">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">gather_free_space_in_drive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">drive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#systeminfo.gather_free_space_in_drive" title="Link to this definition"></a></dt>
+<dd><p>Gather the free space in a specified drive.</p>
+<p>Parameters:
+drive (str): The drive to check the free space of.</p>
+<blockquote>
+<div><p>If the drive is a single letter, it is assumed to be a Windows drive.</p>
+</div></blockquote>
+<p>Returns:
+float: The free space in bytes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_free_ram">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_free_ram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#systeminfo.get_free_ram" title="Link to this definition"></a></dt>
+<dd><p>Get the amount of free RAM available in bytes.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>int: The amount of free RAM in bytes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_free_ram_in_gb">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_free_ram_in_gb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#systeminfo.get_free_ram_in_gb" title="Link to this definition"></a></dt>
+<dd><p>Get the amount of free RAM on the system in gigabytes.</p>
+<p>This function uses the <cite>psutil</cite> library to retrieve the amount of free RAM
+and converts it from bytes to gigabytes.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>float: The amount of free RAM in gigabytes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_installed_ram_gb">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_installed_ram_gb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#systeminfo.get_installed_ram_gb" title="Link to this definition"></a></dt>
+<dd><p>Get the total amount of installed RAM in gigabytes (GB).</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>int: The total amount of installed RAM in gigabytes (GB).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_number_virtual_cores">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_number_virtual_cores</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#systeminfo.get_number_virtual_cores" title="Link to this definition"></a></dt>
+<dd><p>Get the number of virtual (logical) CPU cores including hyperthreads.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>int: The number of virtual CPU cores.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_physical_cores">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_physical_cores</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#systeminfo.get_physical_cores" title="Link to this definition"></a></dt>
+<dd><p>Get the number of physical CPU cores.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>int: The number of physical CPU cores.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.list_drive_spaces">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">list_drive_spaces</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#systeminfo.list_drive_spaces" title="Link to this definition"></a></dt>
+<dd><p>List all available drives and their free space in gigabytes (GB).</p>
+<p>Returns:
+pd.DataFrame: A DataFrame with the drive names and their free space in gigabytes (GB).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.list_drives">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">list_drives</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#systeminfo.list_drives" title="Link to this definition"></a></dt>
+<dd><p>List all available drives on the system.</p>
+<p>Returns:
+list[str]: A list of device names for all available drives.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Daniel Stamer-Squair.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

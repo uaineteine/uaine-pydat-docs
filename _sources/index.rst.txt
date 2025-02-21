@@ -1,0 +1,70 @@
+.. Uaine.Pydat documentation master file, created by
+   sphinx-quickstart on Wed Feb 12 22:51:18 2025.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Uaine.Pydat documentation
+=========================
+
+A python package to assist in data and database handling.
+
+This contains a few functions that make data handling a little simpler, including a dedicated psv function, hash functions, data table cleaning methods and snippet queries for duckdb.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+Dependencies
+=========================
+
+* pandas
+* pyreadstat
+* requests
+* duckdb
+* wheel
+* twine
+
+
+
+dataclean
+=========================
+
+.. automodule:: dataclean
+   :members:
+
+datahash
+=========================
+
+.. automodule:: datahash
+   :members:
+
+dataio
+=========================
+
+.. automodule:: dataio
+   :members:
+
+datatransform
+=========================
+
+.. automodule:: datatransform
+   :members:
+
+duckfunc
+=========================
+
+.. automodule:: duckfunc
+   :members:
+
+fileio
+=========================
+
+.. automodule:: fileio
+   :members:
+
+systeminfo
+=========================
+
+.. automodule:: systeminfo
+   :members:
+
