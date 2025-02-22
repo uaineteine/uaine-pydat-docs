@@ -23,8 +23,15 @@ Dependencies
 * duckdb
 * wheel
 * twine
+* psutil
 
 
+
+bitgen
+=========================
+
+.. automodule:: bitgen
+   :members:
 
 dataclean
 =========================

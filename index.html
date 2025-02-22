@@ -44,6 +44,12 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Uaine.Pydat documentation</a></li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#module-bitgen">bitgen</a><ul>
+<li><a class="reference internal" href="#bitgen.gen_random_hex_string"><code class="docutils literal notranslate"><span class="pre">gen_random_hex_string()</span></code></a></li>
+<li><a class="reference internal" href="#bitgen.generate_256_bit_string"><code class="docutils literal notranslate"><span class="pre">generate_256_bit_string()</span></code></a></li>
+<li><a class="reference internal" href="#bitgen.generate_8_bit_string"><code class="docutils literal notranslate"><span class="pre">generate_8_bit_string()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-dataclean">dataclean</a><ul>
 <li><a class="reference internal" href="#dataclean.clean_whitespace_in_df"><code class="docutils literal notranslate"><span class="pre">clean_whitespace_in_df()</span></code></a></li>
 </ul>
@@ -67,6 +73,9 @@
 <li><a class="reference internal" href="#datatransform.add_prefix"><code class="docutils literal notranslate"><span class="pre">add_prefix()</span></code></a></li>
 <li><a class="reference internal" href="#datatransform.add_suffix"><code class="docutils literal notranslate"><span class="pre">add_suffix()</span></code></a></li>
 <li><a class="reference internal" href="#datatransform.break_into_lines"><code class="docutils literal notranslate"><span class="pre">break_into_lines()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.gen_random_hex_string"><code class="docutils literal notranslate"><span class="pre">gen_random_hex_string()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.generate_256_bit_string"><code class="docutils literal notranslate"><span class="pre">generate_256_bit_string()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.generate_8_bit_string"><code class="docutils literal notranslate"><span class="pre">generate_8_bit_string()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-duckfunc">duckfunc</a><ul>
@@ -81,7 +90,9 @@
 <li><a class="reference internal" href="#module-fileio">fileio</a><ul>
 <li><a class="reference internal" href="#fileio.addsyspath"><code class="docutils literal notranslate"><span class="pre">addsyspath()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.download_file_from_url"><code class="docutils literal notranslate"><span class="pre">download_file_from_url()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.gen_random_subfolder"><code class="docutils literal notranslate"><span class="pre">gen_random_subfolder()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.get_file_extension"><code class="docutils literal notranslate"><span class="pre">get_file_extension()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.list_dirs"><code class="docutils literal notranslate"><span class="pre">list_dirs()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.list_files_of_extension"><code class="docutils literal notranslate"><span class="pre">list_files_of_extension()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.mv_file"><code class="docutils literal notranslate"><span class="pre">mv_file()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.read_file_to_bytes"><code class="docutils literal notranslate"><span class="pre">read_file_to_bytes()</span></code></a></li>
@@ -142,7 +153,37 @@
 <li><p>duckdb</p></li>
 <li><p>wheel</p></li>
 <li><p>twine</p></li>
+<li><p>psutil</p></li>
 </ul>
+</section>
+<section id="module-bitgen">
+<span id="bitgen"></span><h1>bitgen<a class="headerlink" href="#module-bitgen" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="bitgen.gen_random_hex_string">
+<span class="sig-prename descclassname"><span class="pre">bitgen.</span></span><span class="sig-name descname"><span class="pre">gen_random_hex_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitlength</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bitgen.gen_random_hex_string" title="Link to this definition"></a></dt>
+<dd><p>Generates a random hexadecimal string of the given bit length.</p>
+<p>Parameters:
+bitlength (int): The length of the bit string to generate.</p>
+<p>Returns:
+str: A random hexadecimal string of the given bit length.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bitgen.generate_256_bit_string">
+<span class="sig-prename descclassname"><span class="pre">bitgen.</span></span><span class="sig-name descname"><span class="pre">generate_256_bit_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bitgen.generate_256_bit_string" title="Link to this definition"></a></dt>
+<dd><p>Generates a random 256-bit hexadecimal string.</p>
+<p>Returns:
+str: A random 256-bit hexadecimal string.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bitgen.generate_8_bit_string">
+<span class="sig-prename descclassname"><span class="pre">bitgen.</span></span><span class="sig-name descname"><span class="pre">generate_8_bit_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bitgen.generate_8_bit_string" title="Link to this definition"></a></dt>
+<dd><p>Generates a random 8-bit hexadecimal string.</p>
+<p>Returns:
+str: A random 8-bit hexadecimal string.</p>
+</dd></dl>
+
 </section>
 <section id="module-dataclean">
 <span id="dataclean"></span><h1>dataclean<a class="headerlink" href="#module-dataclean" title="Link to this heading"></a></h1>
@@ -313,6 +354,32 @@ str: The string with the suffix added.</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.gen_random_hex_string">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">gen_random_hex_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitlength</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#datatransform.gen_random_hex_string" title="Link to this definition"></a></dt>
+<dd><p>Generates a random hexadecimal string of the given bit length.</p>
+<p>Parameters:
+bitlength (int): The length of the bit string to generate.</p>
+<p>Returns:
+str: A random hexadecimal string of the given bit length.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.generate_256_bit_string">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">generate_256_bit_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datatransform.generate_256_bit_string" title="Link to this definition"></a></dt>
+<dd><p>Generates a random 256-bit hexadecimal string.</p>
+<p>Returns:
+str: A random 256-bit hexadecimal string.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.generate_8_bit_string">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">generate_8_bit_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datatransform.generate_8_bit_string" title="Link to this definition"></a></dt>
+<dd><p>Generates a random 8-bit hexadecimal string.</p>
+<p>Returns:
+str: A random 8-bit hexadecimal string.</p>
+</dd></dl>
+
 </section>
 <section id="module-duckfunc">
 <span id="duckfunc"></span><h1>duckfunc<a class="headerlink" href="#module-duckfunc" title="Link to this heading"></a></h1>
@@ -420,6 +487,18 @@ save_path (str): The file path where the downloaded file will be saved.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="fileio.gen_random_subfolder">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">gen_random_subfolder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#fileio.gen_random_subfolder" title="Link to this definition"></a></dt>
+<dd><p>Generates a random subfolder within the specified master directory.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>master_dir (str): The path to the master directory where the subfolder will be created.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The path to the newly created subfolder.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="fileio.get_file_extension">
 <span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">get_file_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#fileio.get_file_extension" title="Link to this definition"></a></dt>
 <dd><p>Get the file extension of the given file path.</p>
@@ -431,6 +510,16 @@ save_path (str): The file path where the downloaded file will be saved.</p>
 <dd class="field-even"><p>The file extension of the file.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileio.list_dirs">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">list_dirs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#fileio.list_dirs" title="Link to this definition"></a></dt>
+<dd><p>List all directories within the specified main directory.</p>
+<p>Args:
+main_dir (str): The main directory path to list directories from.</p>
+<p>Returns:
+list: A list of directory names within the specified main directory.</p>
 </dd></dl>
 
 <dl class="py function">
