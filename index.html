@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uaine.Pydat Documentation &mdash; Uaine.Pydat 2025 documentation</title>
+  <title>Uaine.Pydat Package &mdash; Uaine.Pydat 2025 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -42,7 +42,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Uaine.Pydat Documentation</a></li>
+<li><a class="reference internal" href="#">Uaine.Pydat Package</a></li>
+<li><a class="reference internal" href="#purpose">Purpose</a></li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#module-bitgen">bitgen</a><ul>
 <li><a class="reference internal" href="#bitgen.gen_random_hex_string"><code class="docutils literal notranslate"><span class="pre">gen_random_hex_string()</span></code></a></li>
@@ -75,9 +76,6 @@
 <li><a class="reference internal" href="#datatransform.add_prefix"><code class="docutils literal notranslate"><span class="pre">add_prefix()</span></code></a></li>
 <li><a class="reference internal" href="#datatransform.add_suffix"><code class="docutils literal notranslate"><span class="pre">add_suffix()</span></code></a></li>
 <li><a class="reference internal" href="#datatransform.break_into_lines"><code class="docutils literal notranslate"><span class="pre">break_into_lines()</span></code></a></li>
-<li><a class="reference internal" href="#datatransform.gen_random_hex_string"><code class="docutils literal notranslate"><span class="pre">gen_random_hex_string()</span></code></a></li>
-<li><a class="reference internal" href="#datatransform.generate_256_bit_string"><code class="docutils literal notranslate"><span class="pre">generate_256_bit_string()</span></code></a></li>
-<li><a class="reference internal" href="#datatransform.generate_8_bit_string"><code class="docutils literal notranslate"><span class="pre">generate_8_bit_string()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-duckfunc">duckfunc</a><ul>
@@ -113,6 +111,10 @@
 <li><a class="reference internal" href="#systeminfo.list_drives"><code class="docutils literal notranslate"><span class="pre">list_drives()</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a></li>
+</ul>
+</li>
 </ul>
 </div>
         </div>
@@ -129,7 +131,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Uaine.Pydat Documentation</li>
+      <li class="breadcrumb-item active">Uaine.Pydat Package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -139,9 +141,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="uaine-pydat-documentation">
-<h1>Uaine.Pydat Documentation<a class="headerlink" href="#uaine-pydat-documentation" title="Link to this heading"></a></h1>
+  <section id="uaine-pydat-package">
+<h1>Uaine.Pydat Package<a class="headerlink" href="#uaine-pydat-package" title="Link to this heading"></a></h1>
 <p>A python package to assist in data and database handling.</p>
+<a href="https://pepy.tech/projects/uainepydat"><img src="https://static.pepy.tech/badge/uainepydat" alt="PyPI Downloads"></a>
+<a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a></section>
+<section id="purpose">
+<h1>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h1>
 <p>This contains a few functions that make data handling a little simpler, including a dedicated psv function, hash functions, data table cleaning methods and snippet queries for duckdb.</p>
 <div class="toctree-wrapper compound">
 </div>
@@ -374,32 +380,6 @@ str: The string with the suffix added.</p>
 <dt>Returns:</dt><dd><p>list[str]: A list of lines from the input string.</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="datatransform.gen_random_hex_string">
-<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">gen_random_hex_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitlength</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#datatransform.gen_random_hex_string" title="Link to this definition"></a></dt>
-<dd><p>Generates a random hexadecimal string of the given bit length.</p>
-<p>Parameters:
-bitlength (int): The length of the bit string to generate.</p>
-<p>Returns:
-str: A random hexadecimal string of the given bit length.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="datatransform.generate_256_bit_string">
-<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">generate_256_bit_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datatransform.generate_256_bit_string" title="Link to this definition"></a></dt>
-<dd><p>Generates a random 256-bit hexadecimal string.</p>
-<p>Returns:
-str: A random 256-bit hexadecimal string.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="datatransform.generate_8_bit_string">
-<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">generate_8_bit_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datatransform.generate_8_bit_string" title="Link to this definition"></a></dt>
-<dd><p>Generates a random 8-bit hexadecimal string.</p>
-<p>Returns:
-str: A random 8-bit hexadecimal string.</p>
 </dd></dl>
 
 </section>
@@ -683,6 +663,15 @@ pd.DataFrame: A DataFrame with the drive names and their free space in gigabytes
 list[str]: A list of device names for all available drives.</p>
 </dd></dl>
 
+</section>
+<section id="release-history">
+<h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-0-1">
+<h2>Version 1.0.1<a class="headerlink" href="#version-1-0-1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>First full release of package</p></li>
+</ul>
+</section>
 </section>
 
 
