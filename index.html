@@ -49,6 +49,8 @@
 <li><a class="reference internal" href="#bitgen.gen_random_hex_string"><code class="docutils literal notranslate"><span class="pre">gen_random_hex_string()</span></code></a></li>
 <li><a class="reference internal" href="#bitgen.generate_256_bit_string"><code class="docutils literal notranslate"><span class="pre">generate_256_bit_string()</span></code></a></li>
 <li><a class="reference internal" href="#bitgen.generate_8_bit_string"><code class="docutils literal notranslate"><span class="pre">generate_8_bit_string()</span></code></a></li>
+<li><a class="reference internal" href="#bitgen.generate_custom_uuid"><code class="docutils literal notranslate"><span class="pre">generate_custom_uuid()</span></code></a></li>
+<li><a class="reference internal" href="#bitgen.generate_random_uuid"><code class="docutils literal notranslate"><span class="pre">generate_random_uuid()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-dataclean">dataclean</a><ul>
@@ -112,6 +114,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-0-2">Version 1.0.2</a></li>
 <li><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a></li>
 </ul>
 </li>
@@ -190,6 +193,26 @@ str: A random 256-bit hexadecimal string.</p>
 <dd><p>Generates a random 8-bit hexadecimal string.</p>
 <p>Returns:
 str: A random 8-bit hexadecimal string.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bitgen.generate_custom_uuid">
+<span class="sig-prename descclassname"><span class="pre">bitgen.</span></span><span class="sig-name descname"><span class="pre">generate_custom_uuid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bitgen.generate_custom_uuid" title="Link to this definition"></a></dt>
+<dd><p>Generates a random UUID (Universally Unique Identifier) using UUID version 4,
+formatted with a specified marker.</p>
+<p>Parameters:
+marker (str): The character to use as a separator in the UUID. Default is ‘-‘.</p>
+<p>Returns:
+str: A string representation of a random UUID with the specified marker.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bitgen.generate_random_uuid">
+<span class="sig-prename descclassname"><span class="pre">bitgen.</span></span><span class="sig-name descname"><span class="pre">generate_random_uuid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bitgen.generate_random_uuid" title="Link to this definition"></a></dt>
+<dd><p>Generates a random UUID (Universally Unique Identifier) using UUID version 4,
+with dashes removed.</p>
+<p>Returns:
+str: A string representation of a random UUID without dashes.</p>
 </dd></dl>
 
 </section>
@@ -666,6 +689,14 @@ list[str]: A list of device names for all available drives.</p>
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-0-2">
+<h2>Version 1.0.2<a class="headerlink" href="#version-1-0-2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added Bitgen Features:
+- <cite>generate_random_uuid</cite>: Generates a random UUID (Universally Unique Identifier) using UUID version 4, with dashes removed.
+- <cite>generate_custom_uuid</cite>: Generates a random UUID using UUID version 4, formatted with a specified marker. The default marker is a dash (‘-‘), but it can be customized.</p></li>
+</ul>
+</section>
 <section id="version-1-0-1">
 <h2>Version 1.0.1<a class="headerlink" href="#version-1-0-1" title="Link to this heading"></a></h2>
 <ul class="simple">
