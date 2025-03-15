@@ -54,12 +54,29 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-dataclean">dataclean</a><ul>
+<li><a class="reference internal" href="#dataclean.check_column_completeness"><code class="docutils literal notranslate"><span class="pre">check_column_completeness()</span></code></a></li>
 <li><a class="reference internal" href="#dataclean.clean_whitespace_in_df"><code class="docutils literal notranslate"><span class="pre">clean_whitespace_in_df()</span></code></a></li>
+<li><a class="reference internal" href="#dataclean.convert_to_numeric"><code class="docutils literal notranslate"><span class="pre">convert_to_numeric()</span></code></a></li>
+<li><a class="reference internal" href="#dataclean.keep_alphanumeric"><code class="docutils literal notranslate"><span class="pre">keep_alphanumeric()</span></code></a></li>
+<li><a class="reference internal" href="#dataclean.keep_only_letters"><code class="docutils literal notranslate"><span class="pre">keep_only_letters()</span></code></a></li>
+<li><a class="reference internal" href="#dataclean.normalize_text"><code class="docutils literal notranslate"><span class="pre">normalize_text()</span></code></a></li>
+<li><a class="reference internal" href="#dataclean.remove_empty_rows"><code class="docutils literal notranslate"><span class="pre">remove_empty_rows()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-datagen">datagen</a><ul>
+<li><a class="reference internal" href="#datagen.gen_bool_column"><code class="docutils literal notranslate"><span class="pre">gen_bool_column()</span></code></a></li>
+<li><a class="reference internal" href="#datagen.gen_categorical_column"><code class="docutils literal notranslate"><span class="pre">gen_categorical_column()</span></code></a></li>
+<li><a class="reference internal" href="#datagen.gen_dataframe"><code class="docutils literal notranslate"><span class="pre">gen_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#datagen.gen_date_column"><code class="docutils literal notranslate"><span class="pre">gen_date_column()</span></code></a></li>
+<li><a class="reference internal" href="#datagen.gen_numeric_column"><code class="docutils literal notranslate"><span class="pre">gen_numeric_column()</span></code></a></li>
+<li><a class="reference internal" href="#datagen.gen_sample_dataframe"><code class="docutils literal notranslate"><span class="pre">gen_sample_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#datagen.gen_string_column"><code class="docutils literal notranslate"><span class="pre">gen_string_column()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-datahash">datahash</a><ul>
 <li><a class="reference internal" href="#datahash.hash256"><code class="docutils literal notranslate"><span class="pre">hash256()</span></code></a></li>
 <li><a class="reference internal" href="#datahash.hashhmac"><code class="docutils literal notranslate"><span class="pre">hashhmac()</span></code></a></li>
+<li><a class="reference internal" href="#datahash.randomize_hash"><code class="docutils literal notranslate"><span class="pre">randomize_hash()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-dataio">dataio</a><ul>
@@ -86,7 +103,9 @@
 <li><a class="reference internal" href="#duckfunc.getDuckVersion"><code class="docutils literal notranslate"><span class="pre">getDuckVersion()</span></code></a></li>
 <li><a class="reference internal" href="#duckfunc.get_attached_dbs"><code class="docutils literal notranslate"><span class="pre">get_attached_dbs()</span></code></a></li>
 <li><a class="reference internal" href="#duckfunc.get_inventory"><code class="docutils literal notranslate"><span class="pre">get_inventory()</span></code></a></li>
+<li><a class="reference internal" href="#duckfunc.get_table_as_df"><code class="docutils literal notranslate"><span class="pre">get_table_as_df()</span></code></a></li>
 <li><a class="reference internal" href="#duckfunc.init_table"><code class="docutils literal notranslate"><span class="pre">init_table()</span></code></a></li>
+<li><a class="reference internal" href="#duckfunc.save_from_db"><code class="docutils literal notranslate"><span class="pre">save_from_db()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-fileio">fileio</a><ul>
@@ -104,16 +123,26 @@
 <li><a class="reference internal" href="#module-systeminfo">systeminfo</a><ul>
 <li><a class="reference internal" href="#systeminfo.free_gb_in_drive"><code class="docutils literal notranslate"><span class="pre">free_gb_in_drive()</span></code></a></li>
 <li><a class="reference internal" href="#systeminfo.gather_free_space_in_drive"><code class="docutils literal notranslate"><span class="pre">gather_free_space_in_drive()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_battery_info"><code class="docutils literal notranslate"><span class="pre">get_battery_info()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_cpu_usage_percent"><code class="docutils literal notranslate"><span class="pre">get_cpu_usage_percent()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_formatted_uptime"><code class="docutils literal notranslate"><span class="pre">get_formatted_uptime()</span></code></a></li>
 <li><a class="reference internal" href="#systeminfo.get_free_ram"><code class="docutils literal notranslate"><span class="pre">get_free_ram()</span></code></a></li>
 <li><a class="reference internal" href="#systeminfo.get_free_ram_in_gb"><code class="docutils literal notranslate"><span class="pre">get_free_ram_in_gb()</span></code></a></li>
 <li><a class="reference internal" href="#systeminfo.get_installed_ram_gb"><code class="docutils literal notranslate"><span class="pre">get_installed_ram_gb()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_largest_drive"><code class="docutils literal notranslate"><span class="pre">get_largest_drive()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_network_stats"><code class="docutils literal notranslate"><span class="pre">get_network_stats()</span></code></a></li>
 <li><a class="reference internal" href="#systeminfo.get_number_virtual_cores"><code class="docutils literal notranslate"><span class="pre">get_number_virtual_cores()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_per_cpu_usage_percent"><code class="docutils literal notranslate"><span class="pre">get_per_cpu_usage_percent()</span></code></a></li>
 <li><a class="reference internal" href="#systeminfo.get_physical_cores"><code class="docutils literal notranslate"><span class="pre">get_physical_cores()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_system_info"><code class="docutils literal notranslate"><span class="pre">get_system_info()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_system_uptime"><code class="docutils literal notranslate"><span class="pre">get_system_uptime()</span></code></a></li>
+<li><a class="reference internal" href="#systeminfo.get_top_processes"><code class="docutils literal notranslate"><span class="pre">get_top_processes()</span></code></a></li>
 <li><a class="reference internal" href="#systeminfo.list_drive_spaces"><code class="docutils literal notranslate"><span class="pre">list_drive_spaces()</span></code></a></li>
 <li><a class="reference internal" href="#systeminfo.list_drives"><code class="docutils literal notranslate"><span class="pre">list_drives()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-1">Version 1.1</a></li>
 <li><a class="reference internal" href="#version-1-0-2">Version 1.0.2</a></li>
 <li><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a></li>
 </ul>
@@ -219,6 +248,18 @@ str: A string representation of a random UUID without dashes.</p>
 <section id="module-dataclean">
 <span id="dataclean"></span><h1>dataclean<a class="headerlink" href="#module-dataclean" title="Link to this heading"></a></h1>
 <dl class="py function">
+<dt class="sig sig-object py" id="dataclean.check_column_completeness">
+<span class="sig-prename descclassname"><span class="pre">dataclean.</span></span><span class="sig-name descname"><span class="pre">check_column_completeness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#dataclean.check_column_completeness" title="Link to this definition"></a></dt>
+<dd><p>Calculate the percentage of non-missing values for each column.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (DataFrame): Input DataFrame</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: Dictionary mapping column names to completeness percentage</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="dataclean.clean_whitespace_in_df">
 <span class="sig-prename descclassname"><span class="pre">dataclean.</span></span><span class="sig-name descname"><span class="pre">clean_whitespace_in_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#dataclean.clean_whitespace_in_df" title="Link to this definition"></a></dt>
 <dd><p>Remove leading and trailing whitespace from string columns in a DataFrame.</p>
@@ -226,6 +267,260 @@ str: A string representation of a random UUID without dashes.</p>
 df (DataFrame): The input DataFrame.</p>
 <p>Returns:
 DataFrame: The DataFrame with leading and trailing whitespace removed from string columns.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataclean.convert_to_numeric">
+<span class="sig-prename descclassname"><span class="pre">dataclean.</span></span><span class="sig-name descname"><span class="pre">convert_to_numeric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#dataclean.convert_to_numeric" title="Link to this definition"></a></dt>
+<dd><p>Convert specified columns to numeric type, with errors coerced to NaN.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (DataFrame): Input DataFrame
+columns (list): List of column names to convert</p>
+</dd>
+<dt>Returns:</dt><dd><p>DataFrame: DataFrame with specified columns converted to numeric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataclean.keep_alphanumeric">
+<span class="sig-prename descclassname"><span class="pre">dataclean.</span></span><span class="sig-name descname"><span class="pre">keep_alphanumeric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#dataclean.keep_alphanumeric" title="Link to this definition"></a></dt>
+<dd><p>Filter a string to keep only alphanumeric characters.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>input_string (str): The input string to filter</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: String containing only alphanumeric characters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataclean.keep_only_letters">
+<span class="sig-prename descclassname"><span class="pre">dataclean.</span></span><span class="sig-name descname"><span class="pre">keep_only_letters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#dataclean.keep_only_letters" title="Link to this definition"></a></dt>
+<dd><p>Filter a string to keep only alphabetic characters (letters).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>input_string (str): The input string to filter</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: String containing only letters from the input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataclean.normalize_text">
+<span class="sig-prename descclassname"><span class="pre">dataclean.</span></span><span class="sig-name descname"><span class="pre">normalize_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#dataclean.normalize_text" title="Link to this definition"></a></dt>
+<dd><p>Normalize text by converting to lowercase and removing accents.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>input_string (str): The input string to normalize</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: Normalized string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataclean.remove_empty_rows">
+<span class="sig-prename descclassname"><span class="pre">dataclean.</span></span><span class="sig-name descname"><span class="pre">remove_empty_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#dataclean.remove_empty_rows" title="Link to this definition"></a></dt>
+<dd><p>Remove rows where all values are empty or NaN.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (DataFrame): Input DataFrame</p>
+</dd>
+<dt>Returns:</dt><dd><p>DataFrame: DataFrame with empty rows removed</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-datagen">
+<span id="datagen"></span><h1>datagen<a class="headerlink" href="#module-datagen" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="datagen.gen_bool_column">
+<span class="sig-prename descclassname"><span class="pre">datagen.</span></span><span class="sig-name descname"><span class="pre">gen_bool_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_prob</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_prob</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="headerlink" href="#datagen.gen_bool_column" title="Link to this definition"></a></dt>
+<dd><p>Generate a pandas Series of random boolean values.</p>
+<section id="parameters">
+<h2>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>size<span class="classifier">int</span></dt><dd><p>Number of values to generate</p>
+</dd>
+<dt>true_prob<span class="classifier">float</span></dt><dd><p>Probability of generating a True value (0.0 to 1.0)</p>
+</dd>
+<dt>null_prob<span class="classifier">float</span></dt><dd><p>Probability of generating a null value (0.0 to 1.0)</p>
+</dd>
+<dt>labels<span class="classifier">tuple(str, str), optional</span></dt><dd><p>Custom labels for (False, True) values. If provided, returns strings instead of booleans.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>pd.Series</dt><dd><p>Series of randomly generated boolean values or custom labels</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datagen.gen_categorical_column">
+<span class="sig-prename descclassname"><span class="pre">datagen.</span></span><span class="sig-name descname"><span class="pre">gen_categorical_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_prob</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="headerlink" href="#datagen.gen_categorical_column" title="Link to this definition"></a></dt>
+<dd><p>Generate a pandas Series of random categorical values.</p>
+<section id="id1">
+<h2>Parameters:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>size<span class="classifier">int</span></dt><dd><p>Number of values to generate</p>
+</dd>
+<dt>categories<span class="classifier">list of str</span></dt><dd><p>List of possible categorical values</p>
+</dd>
+<dt>weights<span class="classifier">list of float, optional</span></dt><dd><p>Probability weights for each category. Must sum to 1.0 if provided.</p>
+</dd>
+<dt>null_prob<span class="classifier">float</span></dt><dd><p>Probability of generating a null value (0.0 to 1.0)</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h2>Returns:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>pd.Series</dt><dd><p>Series of randomly generated categorical values</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datagen.gen_dataframe">
+<span class="sig-prename descclassname"><span class="pre">datagen.</span></span><span class="sig-name descname"><span class="pre">gen_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#datagen.gen_dataframe" title="Link to this definition"></a></dt>
+<dd><p>Generate a pandas DataFrame with specified columns.</p>
+<section id="id3">
+<h2>Parameters:<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>rows<span class="classifier">int</span></dt><dd><p>Number of rows to generate</p>
+</dd>
+<dt>columns<span class="classifier">dict</span></dt><dd><p>Dictionary where keys are column names and values are functions to generate the column data</p>
+</dd>
+<dt>include_id<span class="classifier">bool</span></dt><dd><p>Whether to include an ‘id’ column with sequential integers</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>Returns:<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>Generated DataFrame with the specified columns</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datagen.gen_date_column">
+<span class="sig-prename descclassname"><span class="pre">datagen.</span></span><span class="sig-name descname"><span class="pre">gen_date_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'2020-01-01'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'2023-12-31'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'%Y-%m-%d'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_prob</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uniform'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="headerlink" href="#datagen.gen_date_column" title="Link to this definition"></a></dt>
+<dd><p>Generate a pandas Series of random dates.</p>
+<section id="id5">
+<h2>Parameters:<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>size<span class="classifier">int</span></dt><dd><p>Number of dates to generate</p>
+</dd>
+<dt>start_date<span class="classifier">str or datetime</span></dt><dd><p>Starting date (inclusive)</p>
+</dd>
+<dt>end_date<span class="classifier">str or datetime</span></dt><dd><p>Ending date (inclusive)</p>
+</dd>
+<dt>date_format<span class="classifier">str</span></dt><dd><p>Format string for date output (if returning strings)</p>
+</dd>
+<dt>null_prob<span class="classifier">float</span></dt><dd><p>Probability of generating a null value (0.0 to 1.0)</p>
+</dd>
+<dt>distribution<span class="classifier">str</span></dt><dd><p>Distribution to use for generating dates:
+- ‘uniform’: Uniform distribution between start and end dates
+- ‘normal’: Normal distribution centered on the midpoint
+- ‘recent’: Bias towards more recent dates</p>
+</dd>
+</dl>
+</section>
+<section id="id6">
+<h2>Returns:<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>pd.Series</dt><dd><p>Series of randomly generated dates as strings in the specified format</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datagen.gen_numeric_column">
+<span class="sig-prename descclassname"><span class="pre">datagen.</span></span><span class="sig-name descname"><span class="pre">gen_numeric_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'float'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uniform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_prob</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="headerlink" href="#datagen.gen_numeric_column" title="Link to this definition"></a></dt>
+<dd><p>Generate a pandas Series of random numbers.</p>
+<section id="id7">
+<h2>Parameters:<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>size<span class="classifier">int</span></dt><dd><p>Number of values to generate</p>
+</dd>
+<dt>data_type<span class="classifier">str</span></dt><dd><p>Type of numeric data: ‘int’, ‘float’, or ‘decimal’</p>
+</dd>
+<dt>min_val<span class="classifier">int or float</span></dt><dd><p>Minimum value (inclusive)</p>
+</dd>
+<dt>max_val<span class="classifier">int or float</span></dt><dd><p>Maximum value (inclusive for ints, exclusive for floats)</p>
+</dd>
+<dt>distribution<span class="classifier">str</span></dt><dd><p>Distribution to use for generating values:
+- ‘uniform’: Uniform distribution between min and max
+- ‘normal’: Normal distribution with mean=(min+max)/2 and std=(max-min)/6
+- ‘exponential’: Exponential distribution
+- ‘lognormal’: Log-normal distribution</p>
+</dd>
+<dt>null_prob<span class="classifier">float</span></dt><dd><p>Probability of generating a null value (0.0 to 1.0)</p>
+</dd>
+<dt>precision<span class="classifier">int, optional</span></dt><dd><p>For float/decimal, number of decimal places to round to</p>
+</dd>
+</dl>
+</section>
+<section id="id8">
+<h2>Returns:<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>pd.Series</dt><dd><p>Series of randomly generated numeric values</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datagen.gen_sample_dataframe">
+<span class="sig-prename descclassname"><span class="pre">datagen.</span></span><span class="sig-name descname"><span class="pre">gen_sample_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#datagen.gen_sample_dataframe" title="Link to this definition"></a></dt>
+<dd><p>Generate a sample pandas DataFrame with specified columns.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datagen.gen_string_column">
+<span class="sig-prename descclassname"><span class="pre">datagen.</span></span><span class="sig-name descname"><span class="pre">gen_string_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_prob</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="headerlink" href="#datagen.gen_string_column" title="Link to this definition"></a></dt>
+<dd><p>Generate a pandas Series of random strings.</p>
+<section id="id9">
+<h2>Parameters:<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>size<span class="classifier">int</span></dt><dd><p>Number of strings to generate</p>
+</dd>
+<dt>length<span class="classifier">int or tuple(int, int)</span></dt><dd><p>If int, the exact length of each string
+If tuple, the (min, max) length range for random string length</p>
+</dd>
+<dt>charset<span class="classifier">str, optional</span></dt><dd><p>String containing characters to use. If None, uses lowercase letters</p>
+</dd>
+<dt>prefix<span class="classifier">str, optional</span></dt><dd><p>Prefix to add to each generated string</p>
+</dd>
+<dt>suffix<span class="classifier">str, optional</span></dt><dd><p>Suffix to add to each generated string</p>
+</dd>
+<dt>null_prob<span class="classifier">float, optional</span></dt><dd><p>Probability of generating a null value (0.0 to 1.0)</p>
+</dd>
+<dt>pattern<span class="classifier">str, optional</span></dt><dd><p>Pattern to use for string generation with character classes:
+- ‘L’ = uppercase letter
+- ‘l’ = lowercase letter
+- ‘d’ = digit
+- ‘c’ = special character
+- ‘a’ = any alphanumeric character
+Example: ‘Llldd-lldd’ would generate something like ‘Tgh45-jk78’</p>
+</dd>
+</dl>
+</section>
+<section id="id10">
+<h2>Returns:<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>pd.Series</dt><dd><p>Series of randomly generated strings</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 </section>
@@ -254,6 +549,19 @@ sha_salt (bytes): The salt to be used in the HMAC hashing.
 method: The hashing method to be used (default is hashlib.sha256).</p>
 </dd>
 <dt>Returns:</dt><dd><p>str: The hexadecimal digest of the HMAC hash.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datahash.randomize_hash">
+<span class="sig-prename descclassname"><span class="pre">datahash.</span></span><span class="sig-name descname"><span class="pre">randomize_hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hash_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">salt_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datahash.randomize_hash" title="Link to this definition"></a></dt>
+<dd><p>Randomizes a hash by using hash256 with a random salt.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>hash_string (str): The original hash or string to randomize.
+salt_length (int): The length of the random salt in bytes (default is 16).</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: A new randomized hash derived from the original using hash256.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -471,6 +779,20 @@ tablename (str): The name of the table.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="duckfunc.get_table_as_df">
+<span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">get_table_as_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">con</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#duckfunc.get_table_as_df" title="Link to this definition"></a></dt>
+<dd><p>Query a table from the specified database and return it as a pandas DataFrame.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>con: Database connection object
+db_name (str): Name of the database
+table_name (str): Name of the table</p>
+</dd>
+<dt>Returns:</dt><dd><p>DataFrame: The table contents as a pandas DataFrame, or None if the table doesn’t exist</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="duckfunc.init_table">
 <span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">init_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">con</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tablename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#duckfunc.init_table" title="Link to this definition"></a></dt>
 <dd><p>Initialize a table in the specified database.</p>
@@ -481,6 +803,22 @@ db (str): The name of the database.
 tablename (str): The name of the table.</p>
 </dd>
 <dt>Returns:</dt><dd><p>bool: True if the table was created, False if it already exists.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="duckfunc.save_from_db">
+<span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">save_from_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">con</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#duckfunc.save_from_db" title="Link to this definition"></a></dt>
+<dd><p>Query a table from the specified database and save it to the given output path.
+The output format is determined from the file extension of the output path.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>con: Database connection object
+db_name (str): Name of the database
+table_name (str): Name of the table
+output_path (str): Path to save the output file (extension determines format)</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if the table existed and was saved, False otherwise</p>
 </dd>
 </dl>
 </dd></dl>
@@ -619,6 +957,39 @@ float: The free space in bytes.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_battery_info">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_battery_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#systeminfo.get_battery_info" title="Link to this definition"></a></dt>
+<dd><p>Get information about the system battery.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>dict: Dictionary containing battery percentage, time left, and power plugged status.</dt><dd><p>Returns None if no battery is present.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_cpu_usage_percent">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_cpu_usage_percent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#systeminfo.get_cpu_usage_percent" title="Link to this definition"></a></dt>
+<dd><p>Get the current CPU usage as a percentage.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>float: Current CPU usage percentage.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_formatted_uptime">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_formatted_uptime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#systeminfo.get_formatted_uptime" title="Link to this definition"></a></dt>
+<dd><p>Get the system uptime formatted as days, hours, minutes, seconds.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: Formatted uptime string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="systeminfo.get_free_ram">
 <span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_free_ram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#systeminfo.get_free_ram" title="Link to this definition"></a></dt>
 <dd><p>Get the amount of free RAM available in bytes.</p>
@@ -651,6 +1022,29 @@ and converts it from bytes to gigabytes.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_largest_drive">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_largest_drive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#systeminfo.get_largest_drive" title="Link to this definition"></a></dt>
+<dd><p>Identifies and returns information about the drive with the most free space.</p>
+<p>The function finds the drive with the maximum available free space and returns
+its information with only the letters kept in the drive name.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict[str, any]: Dictionary containing information about the drive with
+the most free space, with the drive name containing only letters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_network_stats">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_network_stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#systeminfo.get_network_stats" title="Link to this definition"></a></dt>
+<dd><p>Get statistics for all network interfaces.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>pd.DataFrame: DataFrame with network interface statistics.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="systeminfo.get_number_virtual_cores">
 <span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_number_virtual_cores</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#systeminfo.get_number_virtual_cores" title="Link to this definition"></a></dt>
 <dd><p>Get the number of virtual (logical) CPU cores including hyperthreads.</p>
@@ -661,11 +1055,53 @@ and converts it from bytes to gigabytes.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_per_cpu_usage_percent">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_per_cpu_usage_percent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#systeminfo.get_per_cpu_usage_percent" title="Link to this definition"></a></dt>
+<dd><p>Get CPU usage percentage for each individual CPU core.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list[float]: List of CPU usage percentages for each core.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="systeminfo.get_physical_cores">
 <span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_physical_cores</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#systeminfo.get_physical_cores" title="Link to this definition"></a></dt>
 <dd><p>Get the number of physical CPU cores.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>int: The number of physical CPU cores.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_system_info">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_system_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#systeminfo.get_system_info" title="Link to this definition"></a></dt>
+<dd><p>Get general system information.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: Dictionary containing OS, hostname, and platform information.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_system_uptime">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_system_uptime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#systeminfo.get_system_uptime" title="Link to this definition"></a></dt>
+<dd><p>Get the system uptime in seconds.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>float: System uptime in seconds.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="systeminfo.get_top_processes">
+<span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">get_top_processes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#systeminfo.get_top_processes" title="Link to this definition"></a></dt>
+<dd><p>Get the top n processes by memory usage.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>n (int): Number of processes to return. Default is 5.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pd.DataFrame: DataFrame with top processes information.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -689,6 +1125,33 @@ list[str]: A list of device names for all available drives.</p>
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-1">
+<h2>Version 1.1<a class="headerlink" href="#version-1-1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added new generic functions for duck database to output tables to files</p></li>
+<li><p>Expansion of systeminformation module to feedback:
+- CPU usage
+- System uptime
+- System information
+- Network stats
+- Top processes</p></li>
+<li><p>Enhanced dataclean module with:
+- <cite>keep_only_letters</cite>: Filters strings to keep only alphabetical characters
+- <cite>keep_alphanumeric</cite>: Filters strings to keep only alphanumeric characters
+- <cite>normalize_text</cite>: Converts text to lowercase and removes accents
+- <cite>remove_empty_rows</cite>: Removes rows where all values are empty or NaN
+- <cite>convert_to_numeric</cite>: Converts specified columns to numeric type
+- <cite>check_column_completeness</cite>: Calculates the percentage of non-missing values for each column</p></li>
+<li><p>Added new datagen module for synthetic data generation:
+- <cite>gen_string_column</cite>: Generates random string data with patterns and customization
+- <cite>gen_numeric_column</cite>: Generates numeric data with various distributions
+- <cite>gen_date_column</cite>: Generates date data with customizable ranges and formats
+- <cite>gen_categorical_column</cite>: Generates categorical data with optional weighted distributions
+- <cite>gen_bool_column</cite>: Generates boolean data with custom labels
+- <cite>gen_dataframe</cite>: Creates complete dataframes with customizable columns
+- <cite>gen_sample_dataframe</cite>: Generates ready-to-use test dataframes with common column types</p></li>
+</ul>
+</section>
 <section id="version-1-0-2">
 <h2>Version 1.0.2<a class="headerlink" href="#version-1-0-2" title="Link to this heading"></a></h2>
 <ul class="simple">
