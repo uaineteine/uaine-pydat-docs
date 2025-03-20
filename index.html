@@ -43,7 +43,7 @@
               <!-- Local TOC -->
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Uaine.Pydat Package</a></li>
-<li><a class="reference internal" href="#purpose">Purpose</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#module-bitgen">bitgen</a><ul>
 <li><a class="reference internal" href="#bitgen.gen_random_hex_string"><code class="docutils literal notranslate"><span class="pre">gen_random_hex_string()</span></code></a></li>
@@ -84,17 +84,27 @@
 <li><a class="reference internal" href="#dataio.read_flat_df"><code class="docutils literal notranslate"><span class="pre">read_flat_df()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.read_flat_psv"><code class="docutils literal notranslate"><span class="pre">read_flat_psv()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.read_ini_file"><code class="docutils literal notranslate"><span class="pre">read_ini_file()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.read_json_file"><code class="docutils literal notranslate"><span class="pre">read_json_file()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.read_sas_colnames"><code class="docutils literal notranslate"><span class="pre">read_sas_colnames()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.read_sas_metadata"><code class="docutils literal notranslate"><span class="pre">read_sas_metadata()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.read_xml_file"><code class="docutils literal notranslate"><span class="pre">read_xml_file()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.select_dataset_ui"><code class="docutils literal notranslate"><span class="pre">select_dataset_ui()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.set_globals_from_config"><code class="docutils literal notranslate"><span class="pre">set_globals_from_config()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.write_flat_df"><code class="docutils literal notranslate"><span class="pre">write_flat_df()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.write_json_file"><code class="docutils literal notranslate"><span class="pre">write_json_file()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.write_xml_file"><code class="docutils literal notranslate"><span class="pre">write_xml_file()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-datatransform">datatransform</a><ul>
 <li><a class="reference internal" href="#datatransform.add_prefix"><code class="docutils literal notranslate"><span class="pre">add_prefix()</span></code></a></li>
 <li><a class="reference internal" href="#datatransform.add_suffix"><code class="docutils literal notranslate"><span class="pre">add_suffix()</span></code></a></li>
 <li><a class="reference internal" href="#datatransform.break_into_lines"><code class="docutils literal notranslate"><span class="pre">break_into_lines()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.dataframe_to_json"><code class="docutils literal notranslate"><span class="pre">dataframe_to_json()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.dataframe_to_xml"><code class="docutils literal notranslate"><span class="pre">dataframe_to_xml()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.json_extract_subtree"><code class="docutils literal notranslate"><span class="pre">json_extract_subtree()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.json_to_dataframe"><code class="docutils literal notranslate"><span class="pre">json_to_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.merge_json_objects"><code class="docutils literal notranslate"><span class="pre">merge_json_objects()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.xml_to_dataframe"><code class="docutils literal notranslate"><span class="pre">xml_to_dataframe()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-duckfunc">duckfunc</a><ul>
@@ -110,6 +120,7 @@
 </li>
 <li><a class="reference internal" href="#module-fileio">fileio</a><ul>
 <li><a class="reference internal" href="#fileio.addsyspath"><code class="docutils literal notranslate"><span class="pre">addsyspath()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.create_filepath_dirs"><code class="docutils literal notranslate"><span class="pre">create_filepath_dirs()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.download_file_from_url"><code class="docutils literal notranslate"><span class="pre">download_file_from_url()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.gen_random_subfolder"><code class="docutils literal notranslate"><span class="pre">gen_random_subfolder()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.get_file_extension"><code class="docutils literal notranslate"><span class="pre">get_file_extension()</span></code></a></li>
@@ -118,6 +129,7 @@
 <li><a class="reference internal" href="#fileio.mv_file"><code class="docutils literal notranslate"><span class="pre">mv_file()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.read_file_to_bytes"><code class="docutils literal notranslate"><span class="pre">read_file_to_bytes()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.read_file_to_string"><code class="docutils literal notranslate"><span class="pre">read_file_to_string()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.remove_directory"><code class="docutils literal notranslate"><span class="pre">remove_directory()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-systeminfo">systeminfo</a><ul>
@@ -142,6 +154,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-2">Version 1.2</a></li>
 <li><a class="reference internal" href="#version-1-1">Version 1.1</a></li>
 <li><a class="reference internal" href="#version-1-0-2">Version 1.0.2</a></li>
 <li><a class="reference internal" href="#version-1-0-1">Version 1.0.1</a></li>
@@ -175,12 +188,17 @@
              
   <section id="uaine-pydat-package">
 <h1>Uaine.Pydat Package<a class="headerlink" href="#uaine-pydat-package" title="Link to this heading"></a></h1>
-<p>A python package to assist in data and database handling.</p>
+<p>This package provides comprehensive tools for data handling, processing, and database operations in Python. It includes specialised functions for file I/O operations, data transformation, data cleaning, system information gathering, and data generation. Key features include PSV file handling, cryptographic hash functions, data table cleaning methods, DuckDB integration with snippet queries, random data generation utilities, and XML/config file parsers. The package aims to simplify common data manipulation tasks while providing a flexible framework for both basic and advanced data operations.</p>
 <a href="https://pepy.tech/projects/uainepydat"><img src="https://static.pepy.tech/badge/uainepydat" alt="PyPI Downloads"></a>
 <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a></section>
-<section id="purpose">
-<h1>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h1>
-<p>This contains a few functions that make data handling a little simpler, including a dedicated psv function, hash functions, data table cleaning methods and snippet queries for duckdb.</p>
+<section id="description">
+<h1>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h1>
+<p>A Python package that streamlines data handling, processing, and database operations through a collection of utility functions and tools.</p>
+<p>Uaine.Pydat provides a comprehensive toolkit for data scientists, analysts, and developers working with structured data. The package simplifies common data manipulation tasks while offering specialized functionality for file operations, data transformation, table cleaning, and database interactions.</p>
+<p>Key Features include File I/O Operations for reading/writing various file formats, listing files by extension, and managing system paths; Data Transformation tools for reshaping, converting, and manipulating data structures with minimal code; Data Cleaning methods to sanitize, standardize, and prepare data tables for analysis; DuckDB Integration with helper functions and snippet queries; Cryptographic Hashing for data integrity and anonymization; System Information utilities to gather system metrics and resource usage; Data Generation for testing and development scenarios; and Configuration Handling for XML, INI, and other formats.</p>
+<p>Core Modules include dataio.py for data input/output operations and format conversion; fileio.py for file system operations and path management; datatransform.py for data structure transformation and manipulation; dataclean.py for data cleaning and standardization; duckfunc.py for DuckDB database interactions; datahash.py for cryptographic hashing functions; systeminfo.py for system information gathering; datagen.py for random data generation; and bitgen.py for low-level bit generation utilities.</p>
+<p>Common Use Cases for this package include simplifying ETL workflows, streamlining data preparation for analysis and machine learning, managing database operations with less boilerplate code, generating test data for development, monitoring system resources during data processing tasks, and securing sensitive data through hashing and anonymization.</p>
+<p>This package aims to reduce the complexity of common data handling tasks by providing ready-made solutions that follow best practices while remaining flexible enough to adapt to various data processing requirements.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -194,6 +212,7 @@
 <li><p>wheel</p></li>
 <li><p>twine</p></li>
 <li><p>psutil</p></li>
+<li><p>lxml</p></li>
 </ul>
 </section>
 <section id="module-bitgen">
@@ -202,26 +221,32 @@
 <dt class="sig sig-object py" id="bitgen.gen_random_hex_string">
 <span class="sig-prename descclassname"><span class="pre">bitgen.</span></span><span class="sig-name descname"><span class="pre">gen_random_hex_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitlength</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bitgen.gen_random_hex_string" title="Link to this definition"></a></dt>
 <dd><p>Generates a random hexadecimal string of the given bit length.</p>
-<p>Parameters:
-bitlength (int): The length of the bit string to generate.</p>
-<p>Returns:
-str: A random hexadecimal string of the given bit length.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>bitlength (int): The length of the bit string to generate.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: A random hexadecimal string of the given bit length.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bitgen.generate_256_bit_string">
 <span class="sig-prename descclassname"><span class="pre">bitgen.</span></span><span class="sig-name descname"><span class="pre">generate_256_bit_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bitgen.generate_256_bit_string" title="Link to this definition"></a></dt>
 <dd><p>Generates a random 256-bit hexadecimal string.</p>
-<p>Returns:
-str: A random 256-bit hexadecimal string.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: A random 256-bit hexadecimal string.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bitgen.generate_8_bit_string">
 <span class="sig-prename descclassname"><span class="pre">bitgen.</span></span><span class="sig-name descname"><span class="pre">generate_8_bit_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bitgen.generate_8_bit_string" title="Link to this definition"></a></dt>
 <dd><p>Generates a random 8-bit hexadecimal string.</p>
-<p>Returns:
-str: A random 8-bit hexadecimal string.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: A random 8-bit hexadecimal string.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -229,10 +254,12 @@ str: A random 8-bit hexadecimal string.</p>
 <span class="sig-prename descclassname"><span class="pre">bitgen.</span></span><span class="sig-name descname"><span class="pre">generate_custom_uuid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bitgen.generate_custom_uuid" title="Link to this definition"></a></dt>
 <dd><p>Generates a random UUID (Universally Unique Identifier) using UUID version 4,
 formatted with a specified marker.</p>
-<p>Parameters:
-marker (str): The character to use as a separator in the UUID. Default is ‘-‘.</p>
-<p>Returns:
-str: A string representation of a random UUID with the specified marker.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>marker (str): The character to use as a separator in the UUID. Default is ‘-‘.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: A string representation of a random UUID with the specified marker.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -240,8 +267,10 @@ str: A string representation of a random UUID with the specified marker.</p>
 <span class="sig-prename descclassname"><span class="pre">bitgen.</span></span><span class="sig-name descname"><span class="pre">generate_random_uuid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bitgen.generate_random_uuid" title="Link to this definition"></a></dt>
 <dd><p>Generates a random UUID (Universally Unique Identifier) using UUID version 4,
 with dashes removed.</p>
-<p>Returns:
-str: A string representation of a random UUID without dashes.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: A string representation of a random UUID without dashes.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -262,11 +291,13 @@ str: A string representation of a random UUID without dashes.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="dataclean.clean_whitespace_in_df">
 <span class="sig-prename descclassname"><span class="pre">dataclean.</span></span><span class="sig-name descname"><span class="pre">clean_whitespace_in_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#dataclean.clean_whitespace_in_df" title="Link to this definition"></a></dt>
-<dd><p>Remove leading and trailing whitespace from string columns in a DataFrame.</p>
-<p>Parameters:
-df (DataFrame): The input DataFrame.</p>
-<p>Returns:
-DataFrame: The DataFrame with leading and trailing whitespace removed from string columns.</p>
+<dd><p>Remove leading and trailing whitespace from all string columns in a DataFrame.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>df (DataFrame): The input DataFrame.</p>
+</dd>
+<dt>Returns:</dt><dd><p>DataFrame: Theinput DataFrame with leading and trailing whitespace removed from string columns.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -309,7 +340,7 @@ columns (list): List of column names to convert</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="dataclean.normalize_text">
 <span class="sig-prename descclassname"><span class="pre">dataclean.</span></span><span class="sig-name descname"><span class="pre">normalize_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#dataclean.normalize_text" title="Link to this definition"></a></dt>
-<dd><p>Normalize text by converting to lowercase and removing accents.</p>
+<dd><p>Normalise text by converting to lowercase and removing accents.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>input_string (str): The input string to normalize</p>
 </dd>
@@ -325,7 +356,7 @@ columns (list): List of column names to convert</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>df (DataFrame): Input DataFrame</p>
 </dd>
-<dt>Returns:</dt><dd><p>DataFrame: DataFrame with empty rows removed</p>
+<dt>Returns:</dt><dd><p>DataFrame: The input DataFrame with all empty rows removed</p>
 </dd>
 </dl>
 </dd></dl>
@@ -482,6 +513,16 @@ columns (list): List of column names to convert</p>
 <dt class="sig sig-object py" id="datagen.gen_sample_dataframe">
 <span class="sig-prename descclassname"><span class="pre">datagen.</span></span><span class="sig-name descname"><span class="pre">gen_sample_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#datagen.gen_sample_dataframe" title="Link to this definition"></a></dt>
 <dd><p>Generate a sample pandas DataFrame from various column types.</p>
+<dl>
+<dt>Arguments:</dt><dd><p>rows (int): The number of rows to generate for the DataFrame.
+include_id (bool): Whether to include an ‘id’ column as a unique identifier for each row.</p>
+<blockquote>
+<div><p>Defaults to True.</p>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt><dd><p>pd.DataFrame: A pandas DataFrame containing the sample data.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -490,27 +531,29 @@ columns (list): List of column names to convert</p>
 <dd><p>Generate a pandas Series of random strings.</p>
 <section id="id9">
 <h2>Parameters:<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
-<dl class="simple">
-<dt>size<span class="classifier">int</span></dt><dd><p>Number of strings to generate</p>
+<dl>
+<dt>size: int</dt><dd><p>Number of strings to generate</p>
 </dd>
-<dt>length<span class="classifier">int or tuple(int, int)</span></dt><dd><p>If int, the exact length of each string
+<dt>length: int or tuple(int, int)</dt><dd><p>If int, the exact length of each string
 If tuple, the (min, max) length range for random string length</p>
 </dd>
-<dt>charset<span class="classifier">str, optional</span></dt><dd><p>String containing characters to use. If None, uses lowercase letters</p>
+<dt>charset: str, optional</dt><dd><p>String containing characters to use. If None, uses lowercase letters</p>
 </dd>
-<dt>prefix<span class="classifier">str, optional</span></dt><dd><p>Prefix to add to each generated string</p>
+<dt>prefix: str, optional</dt><dd><p>Prefix to add to each generated string</p>
 </dd>
-<dt>suffix<span class="classifier">str, optional</span></dt><dd><p>Suffix to add to each generated string</p>
+<dt>suffix: str, optional</dt><dd><p>Suffix to add to each generated string</p>
 </dd>
-<dt>null_prob<span class="classifier">float, optional</span></dt><dd><p>Probability of generating a null value (0.0 to 1.0)</p>
+<dt>null_prob: float, optional</dt><dd><p>Probability of generating a null value (0.0 to 1.0)</p>
 </dd>
-<dt>pattern<span class="classifier">str, optional</span></dt><dd><p>Pattern to use for string generation with character classes:
-- ‘L’ = uppercase letter
-- ‘l’ = lowercase letter
-- ‘d’ = digit
-- ‘c’ = special character
-- ‘a’ = any alphanumeric character
-Example: ‘Llldd-lldd’ would generate something like ‘Tgh45-jk78’</p>
+<dt>pattern: str, optional</dt><dd><p>Pattern to use for string generation with character classes:</p>
+<ul class="simple">
+<li><p>‘L’ = uppercase letter</p></li>
+<li><p>‘l’ = lowercase letter</p></li>
+<li><p>‘d’ = digit</p></li>
+<li><p>‘c’ = special character</p></li>
+<li><p>‘a’ = any alphanumeric character</p></li>
+</ul>
+<p>Example: ‘Llldd-lldd’ would generate something like ‘Tgh45-jk78’</p>
 </dd>
 </dl>
 </section>
@@ -616,6 +659,23 @@ float: The total memory usage of the DataFrame in bytes.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="dataio.read_json_file">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">read_json_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'records'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#dataio.read_json_file" title="Link to this definition"></a></dt>
+<dd><p>Read a JSON file into a DataFrame.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>filepath (str): The path to the JSON file.
+orient (str): The format of the JSON structure. Default is ‘records’.
+normalize (bool): Whether to normalize nested JSON data. Default is False.
+record_path (str or list): Path to the records in nested JSON. Default is None.
+meta (list): Fields to use as metadata for each record. Default is None.
+encoding (str): The file encoding. Default is ‘utf-8’.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pd.DataFrame: The DataFrame read from the JSON file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="dataio.read_sas_colnames">
 <span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">read_sas_colnames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'latin-1'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#dataio.read_sas_colnames" title="Link to this definition"></a></dt>
 <dd><p>Read SAS file column names.</p>
@@ -637,6 +697,21 @@ encoding (str): The encoding to use for reading the SAS file. Default is “lati
 encoding (str): The encoding to use for reading the SAS file. Default is “latin-1”.</p>
 </dd>
 <dt>Returns:</dt><dd><p>dict: A dictionary containing the column names, labels, formats, and lengths.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.read_xml_file">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">read_xml_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#dataio.read_xml_file" title="Link to this definition"></a></dt>
+<dd><p>Read an XML file into a DataFrame.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>filepath (str): The path to the XML file.
+xpath (str): XPath string to parse specific nodes. Default is ‘./<a href="#id11"><span class="problematic" id="id12">*</span></a>’.
+attrs_only (bool): Parse only the attributes, not the child elements. Default is False.
+encoding (str): The file encoding. Default is ‘utf-8’.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pd.DataFrame: The DataFrame read from the XML file.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -670,6 +745,39 @@ int: The number of global variables set.</p>
 <dt>Args:</dt><dd><p>df (pd.DataFrame): The DataFrame to be written.
 filepath (str): The path where the file will be saved.
 index (bool): Whether to write row names (index). Default is False.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.write_json_file">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">write_json_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'records'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#dataio.write_json_file" title="Link to this definition"></a></dt>
+<dd><p>Write a DataFrame to a JSON file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (pd.DataFrame): The DataFrame to be written.
+filepath (str): The path where the JSON file will be saved.
+orient (str): The format of the JSON structure. Default is ‘records’.
+index (bool): Whether to include the index in the JSON. Default is False.
+indent (int): The indentation level for the JSON file. Default is 4.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.write_xml_file">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">write_xml_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'row'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#dataio.write_xml_file" title="Link to this definition"></a></dt>
+<dd><p>Write a DataFrame to an XML file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (pd.DataFrame): The DataFrame to be written.
+filepath (str): The path where the XML file will be saved.
+index (bool): Whether to include the index in the XML. Default is False.
+root_name (str): The name of the root element. Default is ‘data’.
+row_name (str): The name of each row element. Default is ‘row’.
+attr_cols (list): List of columns to write as attributes, not elements. Default is None.</p>
 </dd>
 <dt>Returns:</dt><dd><p>None</p>
 </dd>
@@ -711,6 +819,188 @@ str: The string with the suffix added.</p>
 <dt>Returns:</dt><dd><p>list[str]: A list of lines from the input string.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.dataframe_to_json">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">dataframe_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'records'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'iso'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datatransform.dataframe_to_json" title="Link to this definition"></a></dt>
+<dd><p>Convert a DataFrame to a JSON string with various orientation options.</p>
+<section id="id13">
+<h2>Parameters:<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>The DataFrame to convert to JSON</p>
+</dd>
+<dt>orient<span class="classifier">str, default ‘records’</span></dt><dd><p>The JSON string orientation. See json_to_dataframe for options.</p>
+</dd>
+<dt>date_format<span class="classifier">str, default ‘iso’</span></dt><dd><p>Format for dates in the resulting JSON:
+- ‘epoch’: Use Unix epoch (seconds since 1970-01-01)
+- ‘iso’: ISO 8601 formatted dates</p>
+</dd>
+<dt>indent<span class="classifier">int, default None</span></dt><dd><p>Indentation level for the resulting JSON string. None = no indentation.</p>
+</dd>
+</dl>
+</section>
+<section id="id14">
+<h2>Returns:<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>str</dt><dd><p>JSON string representation of the DataFrame</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.dataframe_to_xml">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">dataframe_to_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'row'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datatransform.dataframe_to_xml" title="Link to this definition"></a></dt>
+<dd><p>Convert a DataFrame to an XML string.</p>
+<section id="id15">
+<h2>Parameters:<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>The DataFrame to convert to XML</p>
+</dd>
+<dt>root_name<span class="classifier">str, default ‘data’</span></dt><dd><p>The name of the root XML element</p>
+</dd>
+<dt>row_name<span class="classifier">str, default ‘row’</span></dt><dd><p>The name of each row element</p>
+</dd>
+</dl>
+</section>
+<section id="id16">
+<h2>Returns:<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>str</dt><dd><p>XML string representation of the DataFrame</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.json_extract_subtree">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">json_extract_subtree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">any</span></span></span><a class="headerlink" href="#datatransform.json_extract_subtree" title="Link to this definition"></a></dt>
+<dd><p>Extract a subtree from a JSON object using a dot-notation path.</p>
+<section id="id17">
+<h2>Parameters:<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>json_data<span class="classifier">dict or list</span></dt><dd><p>The JSON data to extract from</p>
+</dd>
+<dt>path<span class="classifier">str</span></dt><dd><p>Path to the subtree using dot notation (e.g., ‘person.address.city’)
+Use array indices like ‘results.0.name’ to access list elements</p>
+</dd>
+</dl>
+</section>
+<section id="id18">
+<h2>Returns:<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>any</dt><dd><p>The subtree at the specified path, or None if path doesn’t exist</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;person&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;addresses&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;Boston&#39;</span><span class="p">}]}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">json_extract_subtree</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;person.addresses.0.city&#39;</span><span class="p">)</span>
+<span class="go">&#39;New York&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.json_to_dataframe">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">json_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'records'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#datatransform.json_to_dataframe" title="Link to this definition"></a></dt>
+<dd><p>Convert JSON data into a pandas DataFrame.</p>
+<section id="id19">
+<h2>Parameters:<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>json_data<span class="classifier">str, dict, list, or path to file</span></dt><dd><p>The JSON data to convert. Can be:
+- A string containing JSON data
+- A Python dict or list containing JSON data
+- A file path to a JSON file</p>
+</dd>
+<dt>orient<span class="classifier">str, default ‘records’</span></dt><dd><p>The JSON string orientation. Allowed values:
+- ‘records’: list-like [{column -&gt; value}, … ]
+- ‘split’: dict-like {‘index’ -&gt; [index], ‘columns’ -&gt; [columns], ‘data’ -&gt; [values]}
+- ‘index’: dict-like {index -&gt; {column -&gt; value}}
+- ‘columns’: dict-like {column -&gt; {index -&gt; value}}
+- ‘values’: just the values array</p>
+</dd>
+<dt>normalize<span class="classifier">bool, default False</span></dt><dd><p>Whether to normalize semi-structured JSON data into a flat table</p>
+</dd>
+<dt>record_path<span class="classifier">str or list of str, default None</span></dt><dd><p>Path in each object to list of records. If not passed, data will be
+assumed to be an array of records.</p>
+</dd>
+<dt>meta<span class="classifier">list of str, default None</span></dt><dd><p>Fields to use as metadata for each record in resulting DataFrame</p>
+</dd>
+<dt>encoding<span class="classifier">str, default ‘utf-8’</span></dt><dd><p>Encoding to use when reading JSON from a file</p>
+</dd>
+</dl>
+</section>
+<section id="id20">
+<h2>Returns:<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>The converted DataFrame</p>
+</dd>
+</dl>
+</section>
+<section id="id21">
+<h2>Examples:<a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
+<p># From a JSON string
+&gt;&gt;&gt; json_str = ‘{“name”: “John”, “age”: 30, “city”: “New York”}’
+&gt;&gt;&gt; df = json_to_dataframe(json_str)</p>
+<p># From a file
+&gt;&gt;&gt; df = json_to_dataframe(‘data.json’)</p>
+<p># With nested data
+&gt;&gt;&gt; json_str = ‘{“users”: [{“name”: “John”, “age”: 30}, {“name”: “Jane”, “age”: 25}]}’
+&gt;&gt;&gt; df = json_to_dataframe(json_str, record_path=’users’)</p>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.merge_json_objects">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">merge_json_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_lists</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#datatransform.merge_json_objects" title="Link to this definition"></a></dt>
+<dd><p>Merge two JSON objects, with the second one taking precedence for overlapping keys.</p>
+<section id="id22">
+<h2>Parameters:<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>json1<span class="classifier">dict</span></dt><dd><p>First JSON object (base)</p>
+</dd>
+<dt>json2<span class="classifier">dict</span></dt><dd><p>Second JSON object (takes precedence when keys overlap)</p>
+</dd>
+<dt>merge_lists<span class="classifier">bool, default False</span></dt><dd><p>If True, merge list items; if False, replace lists entirely</p>
+</dd>
+</dl>
+</section>
+<section id="id23">
+<h2>Returns:<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>dict</dt><dd><p>Merged JSON object</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datatransform.xml_to_dataframe">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">xml_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./*'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#datatransform.xml_to_dataframe" title="Link to this definition"></a></dt>
+<dd><p>Convert XML data to a pandas DataFrame.</p>
+<section id="id24">
+<h2>Parameters:<a class="headerlink" href="#id24" title="Link to this heading"></a></h2>
+<dl>
+<dt>xml_data<span class="classifier">str or file-like object or path</span></dt><dd><p>The XML data to convert. Can be:
+- A string containing XML data
+- A file path to an XML file
+- A file-like object containing XML data</p>
+</dd>
+<dt>xpath<span class="classifier">str, default ‘./<a href="#id25"><span class="problematic" id="id26">*</span></a>’</span></dt><dd><p>XPath string to parse specific nodes</p>
+</dd>
+</dl>
+</section>
+<section id="id27">
+<h2>Returns:<a class="headerlink" href="#id27" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>The DataFrame representation of the XML data</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 </section>
@@ -830,10 +1120,26 @@ output_path (str): Path to save the output file (extension determines format)</p
 <dt class="sig sig-object py" id="fileio.addsyspath">
 <span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">addsyspath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fileio.addsyspath" title="Link to this definition"></a></dt>
 <dd><p>Add the specified directory to the system path if it is not already included.</p>
-<p>Parameters:
-directory (str): The directory to be added to the system path.</p>
-<p>Returns:
-None</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>directory (str): The directory to be added to the system path.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileio.create_filepath_dirs">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">create_filepath_dirs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#fileio.create_filepath_dirs" title="Link to this definition"></a></dt>
+<dd><p>Creates all directories needed for a given file path.</p>
+<p>If the path contains folders, this function creates all necessary 
+directories in the path if they don’t already exist.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>path (str): The file path for which to create directories.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -879,10 +1185,12 @@ save_path (str): The file path where the downloaded file will be saved.</p>
 <dt class="sig sig-object py" id="fileio.list_dirs">
 <span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">list_dirs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#fileio.list_dirs" title="Link to this definition"></a></dt>
 <dd><p>List all directories within the specified main directory.</p>
-<p>Args:
-main_dir (str): The main directory path to list directories from.</p>
-<p>Returns:
-list: A list of directory names within the specified main directory.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>main_dir (str): The main directory path to list directories from.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list: A list of directory names within the specified main directory.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -906,31 +1214,53 @@ list: A list of directory names within the specified main directory.</p>
 <dt class="sig sig-object py" id="fileio.mv_file">
 <span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">mv_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fileio.mv_file" title="Link to this definition"></a></dt>
 <dd><p>Moves a file from the source path to the destination path.</p>
-<p>Parameters:
-src (str): The path of the file to be moved.
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>src (str): The path of the file to be moved.
 dest (str): The destination path where the file should be moved.</p>
-<p>Returns:
-None</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="fileio.read_file_to_bytes">
 <span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">read_file_to_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#fileio.read_file_to_bytes" title="Link to this definition"></a></dt>
 <dd><p>Read the string content from the specified file and convert it to bytes using UTF-8 encoding.</p>
-<p>Parameters:
-file_path (str): The path to the file.</p>
-<p>Returns:
-bytes: The content of the file as bytes.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>file_path (str): The path to the file.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bytes: The content of the file as bytes.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="fileio.read_file_to_string">
 <span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">read_file_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#fileio.read_file_to_string" title="Link to this definition"></a></dt>
 <dd><p>Read the string content from the specified file.</p>
-<p>Parameters:
-file_path (str): The path to the file.</p>
-<p>Returns:
-str: The content of the file as a string.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>file_path (str): The path to the file.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The content of the file as a string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fileio.remove_directory">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">remove_directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#fileio.remove_directory" title="Link to this definition"></a></dt>
+<dd><p>Removes a directory at the specified path.</p>
+<p>Attempts to remove the directory and prints the result. If an error occurs
+during removal, the exception is caught and an error message is printed.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>dir_path (str): The path to the directory to be removed.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if directory was successfully removed, False otherwise.</p>
+</dd>
+<dt>Raises:</dt><dd><p>No exceptions are raised as they are caught and printed internally.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -940,20 +1270,24 @@ str: The content of the file as a string.</p>
 <dt class="sig sig-object py" id="systeminfo.free_gb_in_drive">
 <span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">free_gb_in_drive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">drive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#systeminfo.free_gb_in_drive" title="Link to this definition"></a></dt>
 <dd><p>Calculate the free space in a specified drive in gigabytes (GB).</p>
-<p>Parameters:
-drive (str): The drive to check the free space of.</p>
-<p>Returns:
-float: The free space in gigabytes (GB).</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>drive (str): The drive to check the free space of.</p>
+</dd>
+<dt>Returns:</dt><dd><p>float: The free space in gigabytes (GB).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="systeminfo.gather_free_space_in_drive">
 <span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">gather_free_space_in_drive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">drive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#systeminfo.gather_free_space_in_drive" title="Link to this definition"></a></dt>
 <dd><p>Gather the free space in a specified drive.</p>
-<p>Parameters:
-drive (str): The drive to check the free space of. If the drive is a single letter, it is assumed to be a Windows drive.</p>
-<p>Returns:
-float: The free space in bytes.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>drive (str): The drive to check the free space of. If the drive is a single letter, it is assumed to be a Windows drive.</p>
+</dd>
+<dt>Returns:</dt><dd><p>float: The free space in bytes.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1110,54 +1444,100 @@ the most free space, with the drive name containing only letters.</p>
 <dt class="sig sig-object py" id="systeminfo.list_drive_spaces">
 <span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">list_drive_spaces</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#systeminfo.list_drive_spaces" title="Link to this definition"></a></dt>
 <dd><p>List all available drives and their free space in gigabytes (GB).</p>
-<p>Returns:
-pd.DataFrame: A DataFrame with the drive names and their free space in gigabytes (GB).</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>pd.DataFrame: A DataFrame with the drive names and their free space in gigabytes (GB).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="systeminfo.list_drives">
 <span class="sig-prename descclassname"><span class="pre">systeminfo.</span></span><span class="sig-name descname"><span class="pre">list_drives</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#systeminfo.list_drives" title="Link to this definition"></a></dt>
 <dd><p>List all available drives on the system.</p>
-<p>Returns:
-list[str]: A list of device names for all available drives.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list[str]: A list of device names for all available drives.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-2">
+<h2>Version 1.2<a class="headerlink" href="#version-1-2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Enhanced datatransform module with:</p>
+<ul>
+<li><p><cite>json_to_dataframe</cite>: Converts JSON data into pandas DataFrames with support for:</p>
+<ul>
+<li><p>Multiple input types (JSON strings, Python dicts/lists, file paths)</p></li>
+<li><p>Custom orientation options for structured data</p></li>
+<li><p>Normalization of nested JSON structures</p></li>
+<li><p>Handling of both single objects and arrays of records</p></li>
+<li><p>Customizable encoding for file reading</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Fixed systeminfo module with:</p>
+<ul>
+<li><p>Reworked drive listing to continue functioning when some drives are inaccessible</p></li>
+<li><p>Improved reliability of <cite>get_largest_drive()</cite> function</p></li>
+</ul>
+</li>
+<li><p>Improved fileio module with:</p>
+<ul>
+<li><p>Enhanced <cite>remove_directory()</cite> to return boolean success/failure status instead of only printing messages</p></li>
+<li><p>Added proper type hints and improved documentation for key functions</p></li>
+</ul>
+</li>
+</ul>
+</section>
 <section id="version-1-1">
 <h2>Version 1.1<a class="headerlink" href="#version-1-1" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Added new generic functions for duck database to output tables to files</p></li>
-<li><p>Expansion of systeminformation module to feedback:
-- CPU usage
-- System uptime
-- System information
-- Network stats
-- Top processes</p></li>
-<li><p>Enhanced dataclean module with:
-- <cite>keep_only_letters</cite>: Filters strings to keep only alphabetical characters
-- <cite>keep_alphanumeric</cite>: Filters strings to keep only alphanumeric characters
-- <cite>normalize_text</cite>: Converts text to lowercase and removes accents
-- <cite>remove_empty_rows</cite>: Removes rows where all values are empty or NaN
-- <cite>convert_to_numeric</cite>: Converts specified columns to numeric type
-- <cite>check_column_completeness</cite>: Calculates the percentage of non-missing values for each column</p></li>
-<li><p>Added new datagen module for synthetic data generation:
-- <cite>gen_string_column</cite>: Generates random string data with patterns and customization
-- <cite>gen_numeric_column</cite>: Generates numeric data with various distributions
-- <cite>gen_date_column</cite>: Generates date data with customizable ranges and formats
-- <cite>gen_categorical_column</cite>: Generates categorical data with optional weighted distributions
-- <cite>gen_bool_column</cite>: Generates boolean data with custom labels
-- <cite>gen_dataframe</cite>: Creates complete dataframes with customizable columns
-- <cite>gen_sample_dataframe</cite>: Generates ready-to-use test dataframes with common column types</p></li>
+<li><p>Expansion of systeminformation module to feedback:</p>
+<ul>
+<li><p>CPU usage</p></li>
+<li><p>System uptime</p></li>
+<li><p>System information</p></li>
+<li><p>Network stats</p></li>
+<li><p>Top processes</p></li>
+</ul>
+</li>
+<li><p>Enhanced dataclean module with:</p>
+<ul>
+<li><p><cite>keep_only_letters</cite>: Filters strings to keep only alphabetical characters</p></li>
+<li><p><cite>keep_alphanumeric</cite>: Filters strings to keep only alphanumeric characters</p></li>
+<li><p><cite>normalize_text</cite>: Converts text to lowercase and removes accents</p></li>
+<li><p><cite>remove_empty_rows</cite>: Removes rows where all values are empty or NaN</p></li>
+<li><p><cite>convert_to_numeric</cite>: Converts specified columns to numeric type</p></li>
+<li><p><cite>check_column_completeness</cite>: Calculates the percentage of non-missing values for each column</p></li>
+</ul>
+</li>
+<li><p>Added new datagen module for synthetic data generation:</p>
+<ul>
+<li><p><cite>gen_string_column</cite>: Generates random string data with patterns and customization</p></li>
+<li><p><cite>gen_numeric_column</cite>: Generates numeric data with various distributions</p></li>
+<li><p><cite>gen_date_column</cite>: Generates date data with customizable ranges and formats</p></li>
+<li><p><cite>gen_categorical_column</cite>: Generates categorical data with optional weighted distributions</p></li>
+<li><p><cite>gen_bool_column</cite>: Generates boolean data with custom labels</p></li>
+<li><p><cite>gen_dataframe</cite>: Creates complete dataframes with customizable columns</p></li>
+<li><p><cite>gen_sample_dataframe</cite>: Generates ready-to-use test dataframes with common column types</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section id="version-1-0-2">
 <h2>Version 1.0.2<a class="headerlink" href="#version-1-0-2" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Added Bitgen Features:
-- <cite>generate_random_uuid</cite>: Generates a random UUID (Universally Unique Identifier) using UUID version 4, with dashes removed.
-- <cite>generate_custom_uuid</cite>: Generates a random UUID using UUID version 4, formatted with a specified marker. The default marker is a dash (‘-‘), but it can be customized.</p></li>
+<li><p>Added Bitgen Features:</p>
+<ul>
+<li><p><cite>generate_random_uuid</cite>: Generates a random UUID (Universally Unique Identifier) using UUID version 4, with dashes removed.</p></li>
+<li><p><cite>generate_custom_uuid</cite>: Generates a random UUID using UUID version 4, formatted with a specified marker. The default marker is a dash (‘-‘), but it can be customized.</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section id="version-1-0-1">
