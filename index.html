@@ -120,6 +120,7 @@
 </li>
 <li><a class="reference internal" href="#module-fileio">fileio</a><ul>
 <li><a class="reference internal" href="#fileio.addsyspath"><code class="docutils literal notranslate"><span class="pre">addsyspath()</span></code></a></li>
+<li><a class="reference internal" href="#fileio.calculate_checksums"><code class="docutils literal notranslate"><span class="pre">calculate_checksums()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.create_filepath_dirs"><code class="docutils literal notranslate"><span class="pre">create_filepath_dirs()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.download_file_from_url"><code class="docutils literal notranslate"><span class="pre">download_file_from_url()</span></code></a></li>
 <li><a class="reference internal" href="#fileio.gen_random_subfolder"><code class="docutils literal notranslate"><span class="pre">gen_random_subfolder()</span></code></a></li>
@@ -154,6 +155,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a></li>
 <li><a class="reference internal" href="#version-1-2">Version 1.2</a></li>
 <li><a class="reference internal" href="#version-1-1">Version 1.1</a></li>
 <li><a class="reference internal" href="#version-1-0-2">Version 1.0.2</a></li>
@@ -513,12 +515,10 @@ columns (list): List of column names to convert</p>
 <dt class="sig sig-object py" id="datagen.gen_sample_dataframe">
 <span class="sig-prename descclassname"><span class="pre">datagen.</span></span><span class="sig-name descname"><span class="pre">gen_sample_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#datagen.gen_sample_dataframe" title="Link to this definition"></a></dt>
 <dd><p>Generate a sample pandas DataFrame from various column types.</p>
-<dl>
+<dl class="simple">
 <dt>Arguments:</dt><dd><p>rows (int): The number of rows to generate for the DataFrame.
-include_id (bool): Whether to include an ‘id’ column as a unique identifier for each row.</p>
-<blockquote>
-<div><p>Defaults to True.</p>
-</div></blockquote>
+include_id (bool): Whether to include an ‘id’ column as a unique identifier for each row.
+Defaults to True.</p>
 </dd>
 <dt>Returns:</dt><dd><p>pd.DataFrame: A pandas DataFrame containing the sample data.</p>
 </dd>
@@ -707,7 +707,7 @@ encoding (str): The encoding to use for reading the SAS file. Default is “lati
 <dd><p>Read an XML file into a DataFrame.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>filepath (str): The path to the XML file.
-xpath (str): XPath string to parse specific nodes. Default is ‘./<a href="#id11"><span class="problematic" id="id12">*</span></a>’.
+xpath (str): XPath string to parse specific nodes. Default is ./*
 attrs_only (bool): Parse only the attributes, not the child elements. Default is False.
 encoding (str): The file encoding. Default is ‘utf-8’.</p>
 </dd>
@@ -753,7 +753,7 @@ index (bool): Whether to write row names (index). Default is False.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dataio.write_json_file">
-<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">write_json_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'records'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#dataio.write_json_file" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">write_json_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'records'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dataio.write_json_file" title="Link to this definition"></a></dt>
 <dd><p>Write a DataFrame to a JSON file.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>df (pd.DataFrame): The DataFrame to be written.
@@ -769,7 +769,7 @@ indent (int): The indentation level for the JSON file. Default is 4.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dataio.write_xml_file">
-<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">write_xml_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'row'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#dataio.write_xml_file" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">write_xml_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'row'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dataio.write_xml_file" title="Link to this definition"></a></dt>
 <dd><p>Write a DataFrame to an XML file.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>df (pd.DataFrame): The DataFrame to be written.
@@ -825,8 +825,8 @@ str: The string with the suffix added.</p>
 <dt class="sig sig-object py" id="datatransform.dataframe_to_json">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">dataframe_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'records'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'iso'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datatransform.dataframe_to_json" title="Link to this definition"></a></dt>
 <dd><p>Convert a DataFrame to a JSON string with various orientation options.</p>
-<section id="id13">
-<h2>Parameters:<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
+<section id="id11">
+<h2>Parameters:<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>The DataFrame to convert to JSON</p>
 </dd>
@@ -840,8 +840,8 @@ str: The string with the suffix added.</p>
 </dd>
 </dl>
 </section>
-<section id="id14">
-<h2>Returns:<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<section id="id12">
+<h2>Returns:<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>str</dt><dd><p>JSON string representation of the DataFrame</p>
 </dd>
@@ -853,8 +853,8 @@ str: The string with the suffix added.</p>
 <dt class="sig sig-object py" id="datatransform.dataframe_to_xml">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">dataframe_to_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'row'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datatransform.dataframe_to_xml" title="Link to this definition"></a></dt>
 <dd><p>Convert a DataFrame to an XML string.</p>
-<section id="id15">
-<h2>Parameters:<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<section id="id13">
+<h2>Parameters:<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>The DataFrame to convert to XML</p>
 </dd>
@@ -864,8 +864,8 @@ str: The string with the suffix added.</p>
 </dd>
 </dl>
 </section>
-<section id="id16">
-<h2>Returns:<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<section id="id14">
+<h2>Returns:<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>str</dt><dd><p>XML string representation of the DataFrame</p>
 </dd>
@@ -877,8 +877,8 @@ str: The string with the suffix added.</p>
 <dt class="sig sig-object py" id="datatransform.json_extract_subtree">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">json_extract_subtree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">any</span></span></span><a class="headerlink" href="#datatransform.json_extract_subtree" title="Link to this definition"></a></dt>
 <dd><p>Extract a subtree from a JSON object using a dot-notation path.</p>
-<section id="id17">
-<h2>Parameters:<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
+<section id="id15">
+<h2>Parameters:<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>json_data<span class="classifier">dict or list</span></dt><dd><p>The JSON data to extract from</p>
 </dd>
@@ -887,8 +887,8 @@ Use array indices like ‘results.0.name’ to access list elements</p>
 </dd>
 </dl>
 </section>
-<section id="id18">
-<h2>Returns:<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
+<section id="id16">
+<h2>Returns:<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>any</dt><dd><p>The subtree at the specified path, or None if path doesn’t exist</p>
 </dd>
@@ -908,8 +908,8 @@ Use array indices like ‘results.0.name’ to access list elements</p>
 <dt class="sig sig-object py" id="datatransform.json_to_dataframe">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">json_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'records'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#datatransform.json_to_dataframe" title="Link to this definition"></a></dt>
 <dd><p>Convert JSON data into a pandas DataFrame.</p>
-<section id="id19">
-<h2>Parameters:<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<section id="id17">
+<h2>Parameters:<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>json_data<span class="classifier">str, dict, list, or path to file</span></dt><dd><p>The JSON data to convert. Can be:
 - A string containing JSON data
@@ -934,15 +934,15 @@ assumed to be an array of records.</p>
 </dd>
 </dl>
 </section>
-<section id="id20">
-<h2>Returns:<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
+<section id="id18">
+<h2>Returns:<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>pd.DataFrame</dt><dd><p>The converted DataFrame</p>
 </dd>
 </dl>
 </section>
-<section id="id21">
-<h2>Examples:<a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
+<section id="id19">
+<h2>Examples:<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
 <p># From a JSON string
 &gt;&gt;&gt; json_str = ‘{“name”: “John”, “age”: 30, “city”: “New York”}’
 &gt;&gt;&gt; df = json_to_dataframe(json_str)</p>
@@ -958,8 +958,8 @@ assumed to be an array of records.</p>
 <dt class="sig sig-object py" id="datatransform.merge_json_objects">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">merge_json_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_lists</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#datatransform.merge_json_objects" title="Link to this definition"></a></dt>
 <dd><p>Merge two JSON objects, with the second one taking precedence for overlapping keys.</p>
-<section id="id22">
-<h2>Parameters:<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
+<section id="id20">
+<h2>Parameters:<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>json1<span class="classifier">dict</span></dt><dd><p>First JSON object (base)</p>
 </dd>
@@ -969,8 +969,8 @@ assumed to be an array of records.</p>
 </dd>
 </dl>
 </section>
-<section id="id23">
-<h2>Returns:<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
+<section id="id21">
+<h2>Returns:<a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>dict</dt><dd><p>Merged JSON object</p>
 </dd>
@@ -982,20 +982,20 @@ assumed to be an array of records.</p>
 <dt class="sig sig-object py" id="datatransform.xml_to_dataframe">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">xml_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./*'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#datatransform.xml_to_dataframe" title="Link to this definition"></a></dt>
 <dd><p>Convert XML data to a pandas DataFrame.</p>
-<section id="id24">
-<h2>Parameters:<a class="headerlink" href="#id24" title="Link to this heading"></a></h2>
-<dl>
+<section id="id22">
+<h2>Parameters:<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
+<dl class="simple">
 <dt>xml_data<span class="classifier">str or file-like object or path</span></dt><dd><p>The XML data to convert. Can be:
 - A string containing XML data
 - A file path to an XML file
 - A file-like object containing XML data</p>
 </dd>
-<dt>xpath<span class="classifier">str, default ‘./<a href="#id25"><span class="problematic" id="id26">*</span></a>’</span></dt><dd><p>XPath string to parse specific nodes</p>
+<dt>xpath<span class="classifier">str, default ./*</span></dt><dd><p>XPath string to parse specific nodes</p>
 </dd>
 </dl>
 </section>
-<section id="id27">
-<h2>Returns:<a class="headerlink" href="#id27" title="Link to this heading"></a></h2>
+<section id="id23">
+<h2>Returns:<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>pd.DataFrame</dt><dd><p>The DataFrame representation of the XML data</p>
 </dd>
@@ -1129,8 +1129,25 @@ output_path (str): Path to save the output file (extension determines format)</p
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="fileio.calculate_checksums">
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">calculate_checksums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fileio.calculate_checksums" title="Link to this definition"></a></dt>
+<dd><p>Calculate MD5 checksums for all files in the specified directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dir_path</strong> (<em>str</em>) – Path to the directory containing files.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary mapping file paths to their MD5 checksum.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="fileio.create_filepath_dirs">
-<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">create_filepath_dirs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#fileio.create_filepath_dirs" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">create_filepath_dirs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fileio.create_filepath_dirs" title="Link to this definition"></a></dt>
 <dd><p>Creates all directories needed for a given file path.</p>
 <p>If the path contains folders, this function creates all necessary 
 directories in the path if they don’t already exist.</p>
@@ -1213,7 +1230,7 @@ save_path (str): The file path where the downloaded file will be saved.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="fileio.mv_file">
 <span class="sig-prename descclassname"><span class="pre">fileio.</span></span><span class="sig-name descname"><span class="pre">mv_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fileio.mv_file" title="Link to this definition"></a></dt>
-<dd><p>Moves a file from the source path to the destination path.</p>
+<dd><p>Moves a file from the source path to the destination path using shutil.</p>
 <dl class="simple">
 <dt>Parameters:</dt><dd><p>src (str): The path of the file to be moved.
 dest (str): The destination path where the file should be moved.</p>
@@ -1463,6 +1480,18 @@ the most free space, with the drive name containing only letters.</p>
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-2-1">
+<h2>Version 1.2.1<a class="headerlink" href="#version-1-2-1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added new function to fileio module:</p>
+<ul>
+<li><p><cite>calculate_checksums</cite>: Calculates MD5 checksums for all files in a specified directory, returning a dictionary mapping file paths to their checksums.</p></li>
+</ul>
+</li>
+<li><p>Methods that return no value are no longer displayed in the function signature</p></li>
+<li><p>Fix applied for move file function to be platform independent</p></li>
+</ul>
+</section>
 <section id="version-1-2">
 <h2>Version 1.2<a class="headerlink" href="#version-1-2" title="Link to this heading"></a></h2>
 <ul class="simple">
