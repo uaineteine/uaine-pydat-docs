@@ -53,6 +53,11 @@
 <li><a class="reference internal" href="#bitgen.generate_random_uuid"><code class="docutils literal notranslate"><span class="pre">generate_random_uuid()</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-blobhelper">blobhelper</a><ul>
+<li><a class="reference internal" href="#blobhelper.get_blob_container_path"><code class="docutils literal notranslate"><span class="pre">get_blob_container_path()</span></code></a></li>
+<li><a class="reference internal" href="#blobhelper.get_blob_subfolder_path"><code class="docutils literal notranslate"><span class="pre">get_blob_subfolder_path()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-dataclean">dataclean</a><ul>
 <li><a class="reference internal" href="#dataclean.check_column_completeness"><code class="docutils literal notranslate"><span class="pre">check_column_completeness()</span></code></a></li>
 <li><a class="reference internal" href="#dataclean.clean_whitespace_in_df"><code class="docutils literal notranslate"><span class="pre">clean_whitespace_in_df()</span></code></a></li>
@@ -76,10 +81,12 @@
 <li><a class="reference internal" href="#module-datahash">datahash</a><ul>
 <li><a class="reference internal" href="#datahash.hash256"><code class="docutils literal notranslate"><span class="pre">hash256()</span></code></a></li>
 <li><a class="reference internal" href="#datahash.hashhmac"><code class="docutils literal notranslate"><span class="pre">hashhmac()</span></code></a></li>
+<li><a class="reference internal" href="#datahash.hashmd5"><code class="docutils literal notranslate"><span class="pre">hashmd5()</span></code></a></li>
 <li><a class="reference internal" href="#datahash.randomize_hash"><code class="docutils literal notranslate"><span class="pre">randomize_hash()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-dataio">dataio</a><ul>
+<li><a class="reference internal" href="#dataio.csv_to_parquet"><code class="docutils literal notranslate"><span class="pre">csv_to_parquet()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.df_memory_usage"><code class="docutils literal notranslate"><span class="pre">df_memory_usage()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.read_flat_df"><code class="docutils literal notranslate"><span class="pre">read_flat_df()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.read_flat_psv"><code class="docutils literal notranslate"><span class="pre">read_flat_psv()</span></code></a></li>
@@ -155,6 +162,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-3">Version 1.3</a></li>
 <li><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a></li>
 <li><a class="reference internal" href="#version-1-2">Version 1.2</a></li>
 <li><a class="reference internal" href="#version-1-1">Version 1.1</a></li>
@@ -215,6 +223,7 @@
 <li><p>twine</p></li>
 <li><p>psutil</p></li>
 <li><p>lxml</p></li>
+<li><p>polars</p></li>
 </ul>
 </section>
 <section id="module-bitgen">
@@ -271,6 +280,44 @@ formatted with a specified marker.</p>
 with dashes removed.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>str: A string representation of a random UUID without dashes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-blobhelper">
+<span id="blobhelper"></span><h1>blobhelper<a class="headerlink" href="#module-blobhelper" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="blobhelper.get_blob_container_path">
+<span class="sig-prename descclassname"><span class="pre">blobhelper.</span></span><span class="sig-name descname"><span class="pre">get_blob_container_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_account</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blobhelper.get_blob_container_path" title="Link to this definition"></a></dt>
+<dd><p>Returns the absolute path of the blob container.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>storage_account</strong> – Name of the Azure Storage account.</p></li>
+<li><p><strong>container</strong> – Name of the blob container.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Absolute path as a string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blobhelper.get_blob_subfolder_path">
+<span class="sig-prename descclassname"><span class="pre">blobhelper.</span></span><span class="sig-name descname"><span class="pre">get_blob_subfolder_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_account</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subfolder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blobhelper.get_blob_subfolder_path" title="Link to this definition"></a></dt>
+<dd><p>Returns the absolute path of a blob subfolder using the container path function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>storage_account</strong> – Name of the Azure Storage account.</p></li>
+<li><p><strong>container</strong> – Name of the blob container.</p></li>
+<li><p><strong>subfolder</strong> – Path to subfolder within the container.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Absolute path as a string.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -597,6 +644,19 @@ method: The hashing method to be used (default is hashlib.sha256).</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="datahash.hashmd5">
+<span class="sig-prename descclassname"><span class="pre">datahash.</span></span><span class="sig-name descname"><span class="pre">hashmd5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datastr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sha_salt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datahash.hashmd5" title="Link to this definition"></a></dt>
+<dd><p>Create an MD5 hash using the provided data and salt.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>datastr (str): The data to be hashed.
+sha_salt (str): The salt to be used in the MD5 hashing.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The hexadecimal digest of the MD5 hash.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="datahash.randomize_hash">
 <span class="sig-prename descclassname"><span class="pre">datahash.</span></span><span class="sig-name descname"><span class="pre">randomize_hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hash_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">salt_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datahash.randomize_hash" title="Link to this definition"></a></dt>
 <dd><p>Randomizes a hash by using hash256 with a random salt.</p>
@@ -612,6 +672,24 @@ salt_length (int): The length of the random salt in bytes (default is 16).</p>
 </section>
 <section id="module-dataio">
 <span id="dataio"></span><h1>dataio<a class="headerlink" href="#module-dataio" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="dataio.csv_to_parquet">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">csv_to_parquet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#dataio.csv_to_parquet" title="Link to this definition"></a></dt>
+<dd><p>Converts a CSV file to a Parquet file using Polars in streaming mode.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>input_file (str): The path to the CSV file.</p></li>
+<li><p>separator (str): The delimiter used in the CSV (default: comma).</p></li>
+<li><dl class="simple">
+<dt>output_file (Optional[str]): The path for the output Parquet file.</dt><dd><p>If not provided, it defaults to the same prefix as input_file with a .parquet extension.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="dataio.df_memory_usage">
 <span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">df_memory_usage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#dataio.df_memory_usage" title="Link to this definition"></a></dt>
@@ -1480,6 +1558,27 @@ the most free space, with the drive name containing only letters.</p>
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-3">
+<h2>Version 1.3<a class="headerlink" href="#version-1-3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added new data conversion functionality in dataio module:</p>
+<ul>
+<li><p><cite>csv_to_parquet</cite>: Converts CSV files to Parquet format using Polars in streaming mode with support for custom separators and output file naming</p></li>
+</ul>
+</li>
+<li><p>Enhanced hashing capabilities with new functions in datahash module:</p>
+<ul>
+<li><p><cite>hashmd5</cite>: Creates an MD5 hash using provided data and salt</p></li>
+</ul>
+</li>
+<li><p>Added new Azure blob module (blobhelper) for path operations:</p>
+<ul>
+<li><p><cite>get_blob_container_path</cite>: Returns the absolute path of a blob container</p></li>
+<li><p><cite>get_blob_subfolder_path</cite>: Returns the absolute path of a blob subfolder within a container</p></li>
+</ul>
+</li>
+</ul>
+</section>
 <section id="version-1-2-1">
 <h2>Version 1.2.1<a class="headerlink" href="#version-1-2-1" title="Link to this heading"></a></h2>
 <ul class="simple">
