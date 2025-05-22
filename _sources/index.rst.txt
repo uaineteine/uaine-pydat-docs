@@ -111,6 +111,12 @@ systeminfo
 Release History
 =========================
 
+Version 1.4
+^^^^^^^^^^^^^
+* Added new function to datatransform module:
+
+  - `merge_dataframes`: Merges a list of pandas DataFrames into a single DataFrame, aligning columns by name and filling missing columns with NaN.
+
 Version 1.3
 ^^^^^^^^^^^^^
 * Added new data conversion functionality in dataio module:

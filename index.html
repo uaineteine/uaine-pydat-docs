@@ -110,6 +110,7 @@
 <li><a class="reference internal" href="#datatransform.dataframe_to_xml"><code class="docutils literal notranslate"><span class="pre">dataframe_to_xml()</span></code></a></li>
 <li><a class="reference internal" href="#datatransform.json_extract_subtree"><code class="docutils literal notranslate"><span class="pre">json_extract_subtree()</span></code></a></li>
 <li><a class="reference internal" href="#datatransform.json_to_dataframe"><code class="docutils literal notranslate"><span class="pre">json_to_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#datatransform.merge_dataframes"><code class="docutils literal notranslate"><span class="pre">merge_dataframes()</span></code></a></li>
 <li><a class="reference internal" href="#datatransform.merge_json_objects"><code class="docutils literal notranslate"><span class="pre">merge_json_objects()</span></code></a></li>
 <li><a class="reference internal" href="#datatransform.xml_to_dataframe"><code class="docutils literal notranslate"><span class="pre">xml_to_dataframe()</span></code></a></li>
 </ul>
@@ -162,6 +163,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-4">Version 1.4</a></li>
 <li><a class="reference internal" href="#version-1-3">Version 1.3</a></li>
 <li><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a></li>
 <li><a class="reference internal" href="#version-1-2">Version 1.2</a></li>
@@ -1033,6 +1035,13 @@ assumed to be an array of records.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="datatransform.merge_dataframes">
+<span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">merge_dataframes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#datatransform.merge_dataframes" title="Link to this definition"></a></dt>
+<dd><p>Merges a list of DataFrames into a single DataFrame, aligning columns by name.
+Missing columns will be filled with NaN.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="datatransform.merge_json_objects">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">merge_json_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_lists</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#datatransform.merge_json_objects" title="Link to this definition"></a></dt>
 <dd><p>Merge two JSON objects, with the second one taking precedence for overlapping keys.</p>
@@ -1558,6 +1567,16 @@ the most free space, with the drive name containing only letters.</p>
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-4">
+<h2>Version 1.4<a class="headerlink" href="#version-1-4" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added new function to datatransform module:</p>
+<ul>
+<li><p><cite>merge_dataframes</cite>: Merges a list of pandas DataFrames into a single DataFrame, aligning columns by name and filling missing columns with NaN.</p></li>
+</ul>
+</li>
+</ul>
+</section>
 <section id="version-1-3">
 <h2>Version 1.3<a class="headerlink" href="#version-1-3" title="Link to this heading"></a></h2>
 <ul class="simple">
