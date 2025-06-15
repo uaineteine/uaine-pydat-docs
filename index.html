@@ -54,8 +54,11 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-blobhelper">blobhelper</a><ul>
+<li><a class="reference internal" href="#blobhelper.download_all_blobs"><code class="docutils literal notranslate"><span class="pre">download_all_blobs()</span></code></a></li>
+<li><a class="reference internal" href="#blobhelper.get_account_url"><code class="docutils literal notranslate"><span class="pre">get_account_url()</span></code></a></li>
 <li><a class="reference internal" href="#blobhelper.get_blob_container_path"><code class="docutils literal notranslate"><span class="pre">get_blob_container_path()</span></code></a></li>
 <li><a class="reference internal" href="#blobhelper.get_blob_subfolder_path"><code class="docutils literal notranslate"><span class="pre">get_blob_subfolder_path()</span></code></a></li>
+<li><a class="reference internal" href="#blobhelper.list_blob_content"><code class="docutils literal notranslate"><span class="pre">list_blob_content()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-dataclean">dataclean</a><ul>
@@ -163,6 +166,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-5">Version 1.5</a></li>
 <li><a class="reference internal" href="#version-1-4">Version 1.4</a></li>
 <li><a class="reference internal" href="#version-1-3">Version 1.3</a></li>
 <li><a class="reference internal" href="#version-1-2-1">Version 1.2.1</a></li>
@@ -226,6 +230,8 @@
 <li><p>psutil</p></li>
 <li><p>lxml</p></li>
 <li><p>polars</p></li>
+<li><p>azure-storage-blob</p></li>
+<li><p>tqdm</p></li>
 </ul>
 </section>
 <section id="module-bitgen">
@@ -290,6 +296,51 @@ with dashes removed.</p>
 <section id="module-blobhelper">
 <span id="blobhelper"></span><h1>blobhelper<a class="headerlink" href="#module-blobhelper" title="Link to this heading"></a></h1>
 <dl class="py function">
+<dt class="sig sig-object py" id="blobhelper.download_all_blobs">
+<span class="sig-prename descclassname"><span class="pre">blobhelper.</span></span><span class="sig-name descname"><span class="pre">download_all_blobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sastoken</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_loc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_extn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">makedirs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blobhelper.download_all_blobs" title="Link to this definition"></a></dt>
+<dd><p>Download all blobs from an Azure Storage container to a local directory.</p>
+<dl>
+<dt>Args:</dt><dd><p>account_url (str): The Azure Storage account URL.
+container (str): The name of the container to download blobs from.
+folder_path (str): The folder path prefix to filter blobs by.
+sastoken (str): The SAS token for authentication.
+download_loc (str): Local directory path where blobs will be downloaded.
+file_extn (str, optional): File extension to filter blobs by (e.g., ‘txt’, ‘pdf’).</p>
+<blockquote>
+<div><p>If empty, downloads all blobs. Defaults to “”.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>makedirs (bool, optional): Whether to create the download directory if it doesn’t exist. </dt><dd><p>Defaults to True.</p>
+</dd>
+</dl>
+</dd>
+<dt>Note:</dt><dd><p>This function will create the download directory if it doesn’t exist and makedirs is True.
+Files are downloaded with their original names from the blob storage.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blobhelper.get_account_url">
+<span class="sig-prename descclassname"><span class="pre">blobhelper.</span></span><span class="sig-name descname"><span class="pre">get_account_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_account</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blobhelper.get_account_url" title="Link to this definition"></a></dt>
+<dd><p>Generate the Azure Storage account URL from the storage account name.</p>
+<dl>
+<dt>Args:</dt><dd><p>storage_account (str): The name of the Azure Storage account.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>str: The complete Azure Storage account URL in the format </dt><dd><p>‘<a class="reference external" href="https:/">https:/</a>/{storage_account}.blob.core.windows.net’</p>
+</dd>
+</dl>
+</dd>
+<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_account_url</span><span class="p">(</span><span class="s1">&#39;myaccount&#39;</span><span class="p">)</span>
+<span class="go">&#39;https://myaccount.blob.core.windows.net&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="blobhelper.get_blob_container_path">
 <span class="sig-prename descclassname"><span class="pre">blobhelper.</span></span><span class="sig-name descname"><span class="pre">get_blob_container_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage_account</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blobhelper.get_blob_container_path" title="Link to this definition"></a></dt>
 <dd><p>Returns the absolute path of the blob container.</p>
@@ -320,6 +371,25 @@ with dashes removed.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Absolute path as a string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blobhelper.list_blob_content">
+<span class="sig-prename descclassname"><span class="pre">blobhelper.</span></span><span class="sig-name descname"><span class="pre">list_blob_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sastoken</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_extn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blobhelper.list_blob_content" title="Link to this definition"></a></dt>
+<dd><p>List blobs in an Azure Storage container with optional file extension filtering.</p>
+<dl>
+<dt>Args:</dt><dd><p>account_url (str): The Azure Storage account URL.
+container (str): The name of the container to list blobs from.
+folder_path (str): The folder path prefix to filter blobs by.
+sastoken (str): The SAS token for authentication.
+file_extn (str, optional): File extension to filter blobs by (e.g., ‘txt’, ‘pdf’).</p>
+<blockquote>
+<div><p>If empty, returns all blobs. Defaults to “”.</p>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt><dd><p>list: A list of BlobProperties objects matching the specified criteria.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1567,6 +1637,18 @@ the most free space, with the drive name containing only letters.</p>
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-5">
+<h2>Version 1.5<a class="headerlink" href="#version-1-5" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Enhanced blob helper module with new functions:</p>
+<ul>
+<li><p><cite>list_blob_content</cite>: Lists all blobs in a specified container or subfolder</p></li>
+<li><p><cite>download_all_blobs</cite>: Downloads a blob to a specified local path</p></li>
+<li><p><cite>get_account_url</cite>: Generates Azure Storage account URL from storage account name</p></li>
+</ul>
+</li>
+</ul>
+</section>
 <section id="version-1-4">
 <h2>Version 1.4<a class="headerlink" href="#version-1-4" title="Link to this heading"></a></h2>
 <ul class="simple">
