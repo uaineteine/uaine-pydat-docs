@@ -57,6 +57,7 @@
 <li><a class="reference internal" href="#blobhelper.download_all_blobs"><code class="docutils literal notranslate"><span class="pre">download_all_blobs()</span></code></a></li>
 <li><a class="reference internal" href="#blobhelper.get_account_url"><code class="docutils literal notranslate"><span class="pre">get_account_url()</span></code></a></li>
 <li><a class="reference internal" href="#blobhelper.get_blob_container_path"><code class="docutils literal notranslate"><span class="pre">get_blob_container_path()</span></code></a></li>
+<li><a class="reference internal" href="#blobhelper.get_blob_md5_checksums"><code class="docutils literal notranslate"><span class="pre">get_blob_md5_checksums()</span></code></a></li>
 <li><a class="reference internal" href="#blobhelper.get_blob_subfolder_path"><code class="docutils literal notranslate"><span class="pre">get_blob_subfolder_path()</span></code></a></li>
 <li><a class="reference internal" href="#blobhelper.list_blob_content"><code class="docutils literal notranslate"><span class="pre">list_blob_content()</span></code></a></li>
 </ul>
@@ -354,6 +355,22 @@ Files are downloaded with their original names from the blob storage.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Absolute path as a string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blobhelper.get_blob_md5_checksums">
+<span class="sig-prename descclassname"><span class="pre">blobhelper.</span></span><span class="sig-name descname"><span class="pre">get_blob_md5_checksums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sastoken</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_hex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blobhelper.get_blob_md5_checksums" title="Link to this definition"></a></dt>
+<dd><p>Retrieves MD5 checksums for a list of blobs in Azure Blob Storage.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>account_url (str): The Azure Storage account URL.
+container (str): The name of the container.
+sastoken (str): The SAS token for authentication.
+blob_list (list): List of BlobProperties objects.
+use_hex (bool): If True, returns checksum as hex; otherwise Base64. Default is False.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary mapping blob names to their MD5 checksums, or None if not available.</p>
 </dd>
 </dl>
 </dd></dl>
