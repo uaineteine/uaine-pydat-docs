@@ -54,6 +54,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-blobhelper">blobhelper</a><ul>
+<li><a class="reference internal" href="#blobhelper.check_sas_token"><code class="docutils literal notranslate"><span class="pre">check_sas_token()</span></code></a></li>
 <li><a class="reference internal" href="#blobhelper.download_all_blobs"><code class="docutils literal notranslate"><span class="pre">download_all_blobs()</span></code></a></li>
 <li><a class="reference internal" href="#blobhelper.get_account_url"><code class="docutils literal notranslate"><span class="pre">get_account_url()</span></code></a></li>
 <li><a class="reference internal" href="#blobhelper.get_blob_container_path"><code class="docutils literal notranslate"><span class="pre">get_blob_container_path()</span></code></a></li>
@@ -167,6 +168,8 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-5-3">Version 1.5.3</a></li>
+<li><a class="reference internal" href="#version-1-5-2">Version 1.5.2</a></li>
 <li><a class="reference internal" href="#version-1-5-1">Version 1.5.1</a></li>
 <li><a class="reference internal" href="#version-1-5">Version 1.5</a></li>
 <li><a class="reference internal" href="#version-1-4">Version 1.4</a></li>
@@ -297,6 +300,21 @@ with dashes removed.</p>
 </section>
 <section id="module-blobhelper">
 <span id="blobhelper"></span><h1>blobhelper<a class="headerlink" href="#module-blobhelper" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="blobhelper.check_sas_token">
+<span class="sig-prename descclassname"><span class="pre">blobhelper.</span></span><span class="sig-name descname"><span class="pre">check_sas_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sastoken</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blobhelper.check_sas_token" title="Link to this definition"></a></dt>
+<dd><p>Checks if the provided SAS token is valid for the given container.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>account_url (str): The Azure Storage account URL.
+container (str): The name of the container to check access for.
+sastoken (str): The SAS token to validate.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if the SAS token is valid and has access, False otherwise.
+str: Optional error message if invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="blobhelper.download_all_blobs">
 <span class="sig-prename descclassname"><span class="pre">blobhelper.</span></span><span class="sig-name descname"><span class="pre">download_all_blobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sastoken</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_loc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_extn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">makedirs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blobhelper.download_all_blobs" title="Link to this definition"></a></dt>
@@ -1655,6 +1673,18 @@ the most free space, with the drive name containing only letters.</p>
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-5-3">
+<h2>Version 1.5.3<a class="headerlink" href="#version-1-5-3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Blob helper module now contains a function for checking if a SAS token works for a container</p></li>
+</ul>
+</section>
+<section id="version-1-5-2">
+<h2>Version 1.5.2<a class="headerlink" href="#version-1-5-2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Blob helper module now contains a checksum function for listed blobs</p></li>
+</ul>
+</section>
 <section id="version-1-5-1">
 <h2>Version 1.5.1<a class="headerlink" href="#version-1-5-1" title="Link to this heading"></a></h2>
 <ul class="simple">
