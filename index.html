@@ -146,6 +146,14 @@
 <li><a class="reference internal" href="#fileio.remove_directory"><code class="docutils literal notranslate"><span class="pre">remove_directory()</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-frameverifier">frameverifier</a><ul>
+<li><a class="reference internal" href="#frameverifier.FrameTypeVerifier"><code class="docutils literal notranslate"><span class="pre">FrameTypeVerifier</span></code></a><ul>
+<li><a class="reference internal" href="#frameverifier.FrameTypeVerifier.is_supported"><code class="docutils literal notranslate"><span class="pre">FrameTypeVerifier.is_supported()</span></code></a></li>
+<li><a class="reference internal" href="#frameverifier.FrameTypeVerifier.verify"><code class="docutils literal notranslate"><span class="pre">FrameTypeVerifier.verify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-systeminfo">systeminfo</a><ul>
 <li><a class="reference internal" href="#systeminfo.free_gb_in_drive"><code class="docutils literal notranslate"><span class="pre">free_gb_in_drive()</span></code></a></li>
 <li><a class="reference internal" href="#systeminfo.gather_free_space_in_drive"><code class="docutils literal notranslate"><span class="pre">gather_free_space_in_drive()</span></code></a></li>
@@ -168,6 +176,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-6">Version 1.6</a></li>
 <li><a class="reference internal" href="#version-1-5-3">Version 1.5.3</a></li>
 <li><a class="reference internal" href="#version-1-5-2">Version 1.5.2</a></li>
 <li><a class="reference internal" href="#version-1-5-1">Version 1.5.1</a></li>
@@ -1474,6 +1483,43 @@ during removal, the exception is caught and an error message is printed.</p>
 </dd></dl>
 
 </section>
+<section id="module-frameverifier">
+<span id="frameverifier"></span><h1>frameverifier<a class="headerlink" href="#module-frameverifier" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="frameverifier.FrameTypeVerifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">frameverifier.</span></span><span class="sig-name descname"><span class="pre">FrameTypeVerifier</span></span><a class="headerlink" href="#frameverifier.FrameTypeVerifier" title="Link to this definition"></a></dt>
+<dd><p>Static class to verify that the DataFrame matches the specified frame_type.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="frameverifier.FrameTypeVerifier.is_supported">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#frameverifier.FrameTypeVerifier.is_supported" title="Link to this definition"></a></dt>
+<dd><p>Check if the frame_type is supported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>frame_type</strong> – Type of DataFrame (‘pyspark’, ‘pandas’, ‘polars’).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if supported, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="frameverifier.FrameTypeVerifier.verify">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#frameverifier.FrameTypeVerifier.verify" title="Link to this definition"></a></dt>
+<dd><p>Check if the frame_type matches the DataFrame type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>frame_type</strong> – Type of DataFrame (‘pyspark’, ‘pandas’, ‘polars’).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if matched, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-systeminfo">
 <span id="systeminfo"></span><h1>systeminfo<a class="headerlink" href="#module-systeminfo" title="Link to this heading"></a></h1>
 <dl class="py function">
@@ -1673,6 +1719,17 @@ the most free space, with the drive name containing only letters.</p>
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-6">
+<h2>Version 1.6<a class="headerlink" href="#version-1-6" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added new module: <code class="docutils literal notranslate"><span class="pre">frameverifier</span></code></p>
+<ul>
+<li><p>Provides the <code class="docutils literal notranslate"><span class="pre">FrameTypeVerifier</span></code> class for verifying DataFrame types (<code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">pyspark</span></code>, <code class="docutils literal notranslate"><span class="pre">polars</span></code>).</p></li>
+<li><p>Ensures compatibility and correctness when working with different</p></li>
+</ul>
+</li>
+</ul>
+</section>
 <section id="version-1-5-3">
 <h2>Version 1.5.3<a class="headerlink" href="#version-1-5-3" title="Link to this heading"></a></h2>
 <ul class="simple">
