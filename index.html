@@ -176,6 +176,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-6-1">Version 1.6.1</a></li>
 <li><a class="reference internal" href="#version-1-6">Version 1.6</a></li>
 <li><a class="reference internal" href="#version-1-5-3">Version 1.5.3</a></li>
 <li><a class="reference internal" href="#version-1-5-2">Version 1.5.2</a></li>
@@ -236,7 +237,7 @@
 <h1>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>pandas</p></li>
-<li><p>pyreadstat</p></li>
+<li><p>pyreadstat&gt;=1.2.8,&lt;=1.3.0</p></li>
 <li><p>requests</p></li>
 <li><p>duckdb</p></li>
 <li><p>wheel</p></li>
@@ -246,6 +247,7 @@
 <li><p>polars</p></li>
 <li><p>azure-storage-blob</p></li>
 <li><p>tqdm</p></li>
+<li><p>pyarrow</p></li>
 </ul>
 </section>
 <section id="module-bitgen">
@@ -1719,6 +1721,13 @@ the most free space, with the drive name containing only letters.</p>
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-6-1">
+<h2>Version 1.6.1<a class="headerlink" href="#version-1-6-1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added new function to datatio module:
+- <code class="docutils literal notranslate"><span class="pre">sas_to_parquet_chunks_mt</span></code>: Converts SAS files to Parquet format in parallel, splitting the data into manageable chunks for efficient processing. Supports custom chunk sizes, output directories, and multiple Parquet engines.</p></li>
+</ul>
+</section>
 <section id="version-1-6">
 <h2>Version 1.6<a class="headerlink" href="#version-1-6" title="Link to this heading"></a></h2>
 <ul class="simple">
