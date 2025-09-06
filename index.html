@@ -100,6 +100,7 @@
 <li><a class="reference internal" href="#dataio.read_sas_colnames"><code class="docutils literal notranslate"><span class="pre">read_sas_colnames()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.read_sas_metadata"><code class="docutils literal notranslate"><span class="pre">read_sas_metadata()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.read_xml_file"><code class="docutils literal notranslate"><span class="pre">read_xml_file()</span></code></a></li>
+<li><a class="reference internal" href="#dataio.sas_to_parquet_chunks_mt"><code class="docutils literal notranslate"><span class="pre">sas_to_parquet_chunks_mt()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.select_dataset_ui"><code class="docutils literal notranslate"><span class="pre">select_dataset_ui()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.set_globals_from_config"><code class="docutils literal notranslate"><span class="pre">set_globals_from_config()</span></code></a></li>
 <li><a class="reference internal" href="#dataio.write_flat_df"><code class="docutils literal notranslate"><span class="pre">write_flat_df()</span></code></a></li>
@@ -128,6 +129,8 @@
 <li><a class="reference internal" href="#duckfunc.get_inventory"><code class="docutils literal notranslate"><span class="pre">get_inventory()</span></code></a></li>
 <li><a class="reference internal" href="#duckfunc.get_table_as_df"><code class="docutils literal notranslate"><span class="pre">get_table_as_df()</span></code></a></li>
 <li><a class="reference internal" href="#duckfunc.init_table"><code class="docutils literal notranslate"><span class="pre">init_table()</span></code></a></li>
+<li><a class="reference internal" href="#duckfunc.load_csv_to_db"><code class="docutils literal notranslate"><span class="pre">load_csv_to_db()</span></code></a></li>
+<li><a class="reference internal" href="#duckfunc.make_version_meta_table"><code class="docutils literal notranslate"><span class="pre">make_version_meta_table()</span></code></a></li>
 <li><a class="reference internal" href="#duckfunc.save_from_db"><code class="docutils literal notranslate"><span class="pre">save_from_db()</span></code></a></li>
 </ul>
 </li>
@@ -176,6 +179,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#release-history">Release History</a><ul>
+<li><a class="reference internal" href="#version-1-6-2">Version 1.6.2</a></li>
 <li><a class="reference internal" href="#version-1-6-1">Version 1.6.1</a></li>
 <li><a class="reference internal" href="#version-1-6">Version 1.6</a></li>
 <li><a class="reference internal" href="#version-1-5-3">Version 1.5.3</a></li>
@@ -914,6 +918,68 @@ encoding (str): The file encoding. Default is ‘utf-8’.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="dataio.sas_to_parquet_chunks_mt">
+<span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">sas_to_parquet_chunks_mt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sas_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows_per_chunk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'sas7bdat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_inflight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parquet_engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pyarrow'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dataio.sas_to_parquet_chunks_mt" title="Link to this definition"></a></dt>
+<dd><p>Convert a large SAS file into multiple Parquet files by processing it in chunks
+using multithreading for parallel writes.</p>
+<p>The function reads the input SAS dataset in chunks, writes each chunk
+as a Parquet file, and ensures that the number of in-memory chunks is capped
+to avoid excessive memory usage.</p>
+<section id="id11">
+<h2>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>sas_file<span class="classifier">str</span></dt><dd><p>Path to the input SAS file (e.g., <code class="docutils literal notranslate"><span class="pre">.sas7bdat</span></code>).</p>
+</dd>
+<dt>out_dir<span class="classifier">str</span></dt><dd><p>Directory where the resulting Parquet files will be written. Created if it
+does not exist.</p>
+</dd>
+<dt>rows_per_chunk<span class="classifier">int, optional</span></dt><dd><p>Number of rows per chunk to read and write. Defaults to <code class="docutils literal notranslate"><span class="pre">100_000</span></code>.</p>
+</dd>
+<dt>format<span class="classifier">str, optional</span></dt><dd><p>File format for the SAS reader (typically <code class="docutils literal notranslate"><span class="pre">&quot;sas7bdat&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;xport&quot;</span></code>).
+Defaults to <code class="docutils literal notranslate"><span class="pre">&quot;sas7bdat&quot;</span></code>.</p>
+</dd>
+<dt>max_workers<span class="classifier">int, optional</span></dt><dd><p>Maximum number of worker threads for concurrent Parquet writing. Defaults to <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
+</dd>
+<dt>max_inflight<span class="classifier">int, optional</span></dt><dd><p>Maximum number of chunks allowed to be pending in memory before waiting for
+some to finish. Defaults to <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p>
+</dd>
+<dt>parquet_engine<span class="classifier">str, optional</span></dt><dd><p>Parquet backend to use. Supported values are <code class="docutils literal notranslate"><span class="pre">&quot;pyarrow&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;fastparquet&quot;</span></code>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">&quot;pyarrow&quot;</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h2>Returns<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>None</dt><dd><p>This function writes output files to <code class="docutils literal notranslate"><span class="pre">out_dir</span></code> and prints progress to stdout.</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Output files are named sequentially as <code class="docutils literal notranslate"><span class="pre">part_00000.parquet</span></code>, <code class="docutils literal notranslate"><span class="pre">part_00001.parquet</span></code>,
+and so on.</p></li>
+<li><p>Uses <code class="xref py py-class docutils literal notranslate"><span class="pre">concurrent.futures.ThreadPoolExecutor</span></code> for concurrent writes.</p></li>
+<li><p>Uses <code class="docutils literal notranslate"><span class="pre">pandas.read_sas</span></code> with chunking enabled.</p></li>
+<li><p>Helps process very large SAS datasets without loading them entirely into memory.</p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sas_to_parquet_chunks_mt</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sas_file</span><span class="o">=</span><span class="s2">&quot;data/huge_dataset.sas7bdat&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">out_dir</span><span class="o">=</span><span class="s2">&quot;parquet_chunks&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">rows_per_chunk</span><span class="o">=</span><span class="mi">50_000</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">max_workers</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">parquet_engine</span><span class="o">=</span><span class="s2">&quot;fastparquet&quot;</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="dataio.select_dataset_ui">
 <span class="sig-prename descclassname"><span class="pre">dataio.</span></span><span class="sig-name descname"><span class="pre">select_dataset_ui</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#dataio.select_dataset_ui" title="Link to this definition"></a></dt>
 <dd><p>List the files with the specified extension in the given directory and prompt the user to select one.</p>
@@ -1022,8 +1088,8 @@ str: The string with the suffix added.</p>
 <dt class="sig sig-object py" id="datatransform.dataframe_to_json">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">dataframe_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'records'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'iso'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datatransform.dataframe_to_json" title="Link to this definition"></a></dt>
 <dd><p>Convert a DataFrame to a JSON string with various orientation options.</p>
-<section id="id11">
-<h2>Parameters:<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<section id="id13">
+<h2>Parameters:<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>The DataFrame to convert to JSON</p>
 </dd>
@@ -1037,8 +1103,8 @@ str: The string with the suffix added.</p>
 </dd>
 </dl>
 </section>
-<section id="id12">
-<h2>Returns:<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<section id="id14">
+<h2>Returns:<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>str</dt><dd><p>JSON string representation of the DataFrame</p>
 </dd>
@@ -1050,8 +1116,8 @@ str: The string with the suffix added.</p>
 <dt class="sig sig-object py" id="datatransform.dataframe_to_xml">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">dataframe_to_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'row'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#datatransform.dataframe_to_xml" title="Link to this definition"></a></dt>
 <dd><p>Convert a DataFrame to an XML string.</p>
-<section id="id13">
-<h2>Parameters:<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
+<section id="id15">
+<h2>Parameters:<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>The DataFrame to convert to XML</p>
 </dd>
@@ -1061,8 +1127,8 @@ str: The string with the suffix added.</p>
 </dd>
 </dl>
 </section>
-<section id="id14">
-<h2>Returns:<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<section id="id16">
+<h2>Returns:<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>str</dt><dd><p>XML string representation of the DataFrame</p>
 </dd>
@@ -1074,8 +1140,8 @@ str: The string with the suffix added.</p>
 <dt class="sig sig-object py" id="datatransform.json_extract_subtree">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">json_extract_subtree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">any</span></span></span><a class="headerlink" href="#datatransform.json_extract_subtree" title="Link to this definition"></a></dt>
 <dd><p>Extract a subtree from a JSON object using a dot-notation path.</p>
-<section id="id15">
-<h2>Parameters:<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<section id="id17">
+<h2>Parameters:<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>json_data<span class="classifier">dict or list</span></dt><dd><p>The JSON data to extract from</p>
 </dd>
@@ -1084,15 +1150,15 @@ Use array indices like ‘results.0.name’ to access list elements</p>
 </dd>
 </dl>
 </section>
-<section id="id16">
-<h2>Returns:<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<section id="id18">
+<h2>Returns:<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>any</dt><dd><p>The subtree at the specified path, or None if path doesn’t exist</p>
 </dd>
 </dl>
 </section>
-<section id="examples">
-<h2>Examples:<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<section id="id19">
+<h2>Examples:<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;person&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;addresses&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;Boston&#39;</span><span class="p">}]}}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">json_extract_subtree</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;person.addresses.0.city&#39;</span><span class="p">)</span>
 <span class="go">&#39;New York&#39;</span>
@@ -1105,8 +1171,8 @@ Use array indices like ‘results.0.name’ to access list elements</p>
 <dt class="sig sig-object py" id="datatransform.json_to_dataframe">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">json_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'records'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#datatransform.json_to_dataframe" title="Link to this definition"></a></dt>
 <dd><p>Convert JSON data into a pandas DataFrame.</p>
-<section id="id17">
-<h2>Parameters:<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
+<section id="id20">
+<h2>Parameters:<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>json_data<span class="classifier">str, dict, list, or path to file</span></dt><dd><p>The JSON data to convert. Can be:
 - A string containing JSON data
@@ -1131,15 +1197,15 @@ assumed to be an array of records.</p>
 </dd>
 </dl>
 </section>
-<section id="id18">
-<h2>Returns:<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
+<section id="id21">
+<h2>Returns:<a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>pd.DataFrame</dt><dd><p>The converted DataFrame</p>
 </dd>
 </dl>
 </section>
-<section id="id19">
-<h2>Examples:<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<section id="id22">
+<h2>Examples:<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
 <p># From a JSON string
 &gt;&gt;&gt; json_str = ‘{“name”: “John”, “age”: 30, “city”: “New York”}’
 &gt;&gt;&gt; df = json_to_dataframe(json_str)</p>
@@ -1162,8 +1228,8 @@ Missing columns will be filled with NaN.</p>
 <dt class="sig sig-object py" id="datatransform.merge_json_objects">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">merge_json_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_lists</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#datatransform.merge_json_objects" title="Link to this definition"></a></dt>
 <dd><p>Merge two JSON objects, with the second one taking precedence for overlapping keys.</p>
-<section id="id20">
-<h2>Parameters:<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
+<section id="id23">
+<h2>Parameters:<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>json1<span class="classifier">dict</span></dt><dd><p>First JSON object (base)</p>
 </dd>
@@ -1173,8 +1239,8 @@ Missing columns will be filled with NaN.</p>
 </dd>
 </dl>
 </section>
-<section id="id21">
-<h2>Returns:<a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
+<section id="id24">
+<h2>Returns:<a class="headerlink" href="#id24" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>dict</dt><dd><p>Merged JSON object</p>
 </dd>
@@ -1186,8 +1252,8 @@ Missing columns will be filled with NaN.</p>
 <dt class="sig sig-object py" id="datatransform.xml_to_dataframe">
 <span class="sig-prename descclassname"><span class="pre">datatransform.</span></span><span class="sig-name descname"><span class="pre">xml_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./*'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#datatransform.xml_to_dataframe" title="Link to this definition"></a></dt>
 <dd><p>Convert XML data to a pandas DataFrame.</p>
-<section id="id22">
-<h2>Parameters:<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
+<section id="id25">
+<h2>Parameters:<a class="headerlink" href="#id25" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>xml_data<span class="classifier">str or file-like object or path</span></dt><dd><p>The XML data to convert. Can be:
 - A string containing XML data
@@ -1198,8 +1264,8 @@ Missing columns will be filled with NaN.</p>
 </dd>
 </dl>
 </section>
-<section id="id23">
-<h2>Returns:<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
+<section id="id26">
+<h2>Returns:<a class="headerlink" href="#id26" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>pd.DataFrame</dt><dd><p>The DataFrame representation of the XML data</p>
 </dd>
@@ -1299,6 +1365,23 @@ tablename (str): The name of the table.</p>
 <dt>Returns:</dt><dd><p>bool: True if the table was created, False if it already exists.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="duckfunc.load_csv_to_db">
+<span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">load_csv_to_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">con</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tablename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">csvpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#duckfunc.load_csv_to_db" title="Link to this definition"></a></dt>
+<dd><p>Load a csv file directly to a table</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="duckfunc.make_version_meta_table">
+<span class="sig-prename descclassname"><span class="pre">duckfunc.</span></span><span class="sig-name descname"><span class="pre">make_version_meta_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">con</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#duckfunc.make_version_meta_table" title="Link to this definition"></a></dt>
+<dd><p>Create or update a meta table including the following content:</p>
+<ul class="simple">
+<li><p>database version</p></li>
+<li><p>python version</p></li>
+<li><p>duckdb version</p></li>
+</ul>
 </dd></dl>
 
 <dl class="py function">
@@ -1721,6 +1804,14 @@ the most free space, with the drive name containing only letters.</p>
 </section>
 <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Link to this heading"></a></h1>
+<section id="version-1-6-2">
+<h2>Version 1.6.2<a class="headerlink" href="#version-1-6-2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added new functions to the duckdb helper module:
+- <code class="docutils literal notranslate"><span class="pre">load_csv_to_db</span></code>: Loads a CSV file as a table to the database from a filepath
+- <code class="docutils literal notranslate"><span class="pre">make_version_meta_table</span></code>: An automatic creation of a metadata table for duckdb including versioning info</p></li>
+</ul>
+</section>
 <section id="version-1-6-1">
 <h2>Version 1.6.1<a class="headerlink" href="#version-1-6-1" title="Link to this heading"></a></h2>
 <ul class="simple">
